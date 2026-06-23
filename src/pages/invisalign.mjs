@@ -185,6 +185,7 @@ export default function () {
       title: "Invisalign Anderlecht & Bruxelles | Aligneurs | White & Care",
       description: "Invisalign à Anderlecht et Bruxelles : aligneurs transparents sur mesure, scanner 3D et orthodontiste Invisalign Provider. 4,6/5 sur 191 avis. Appelez-nous.",
       canonical: url,
+      breadcrumb: [["Accueil", "/"], ["Invisalign", "/invisalign"]],
       specialist: true,
       schema: [
         schema({ url, name: "White & Care : Invisalign", description: "Traitement Invisalign à Anderlecht et Bruxelles : aligneurs transparents sur mesure, scanner 3D, simulation ClinCheck et suivi par un orthodontiste Invisalign Provider." }),

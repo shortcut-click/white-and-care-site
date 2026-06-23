@@ -91,7 +91,7 @@ export default function () {
       + `<article class="wc-card wc-feature"><span class="wc-chip">${dentalIcon("sparkle-tooth", 26)}</span><h3>Invisalign</h3><p>Des ${link("gouttières Invisalign", "/invisalign")} transparentes pour réaligner vos dents en toute discrétion, chez l'adolescent comme chez l'adulte.</p></article>`
       + `<article class="wc-card wc-feature"><span class="wc-chip">${dentalIcon("smile", 26)}</span><h3>Orthodontie</h3><p>Bagues métalliques ou céramiques et aligneurs : notre ${link("orthodontie à Anderlecht", "/orthodontie-anderlecht")} corrige le sourire des enfants comme des adultes.</p></article>`
       + `<article class="wc-card wc-feature"><span class="wc-chip">${dentalIcon("tooth", 26)}</span><h3>Blanchiment dentaire</h3><p>${link("Blanchiment dentaire", "/blanchiment-dentaire-cabinet-dentaire-anderlecht")} professionnel en cabinet pour un sourire plus lumineux, avec des résultats naturels et durables.</p></article>`
-      + `<article class="wc-card wc-feature"><span class="wc-chip">${dentalIcon("brush", 26)}</span><h3>Détartrage et surfaçâge</h3><p>${link("Detartrage et surfacage", "/surfacage-detartrage-dentaire")} pour des gencives saines et la base d'une bouche en bonne santé, à intervalles réguliers.</p></article>`
+      + `<article class="wc-card wc-feature"><span class="wc-chip">${dentalIcon("brush", 26)}</span><h3>Détartrage et surfaçage</h3><p>${link("Detartrage et surfacage", "/surfacage-detartrage-dentaire")} pour des gencives saines et la base d'une bouche en bonne santé, à intervalles réguliers.</p></article>`
       + `<article class="wc-card wc-feature"><span class="wc-chip">${dentalIcon("alert-tooth", 26)}</span><h3>Urgence dentaire</h3><p>Douleur, abcès, dent cassée : une prise en charge rapide, du lundi au samedi. Voir notre page ${link("urgence dentaire à Anderlecht", "/urgence-dentaire-anderlecht")}.</p></article>`
       + `</div><div style="text-align:center;margin-top:28px">${btn("Appelez White & Care : " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true })}</div></div></section>`,
 
@@ -182,6 +182,7 @@ export default function () {
       title: "Cabinet dentaire à Anderlecht (Cora) | White & Care",
       description: "Cabinet dentaire White & Care au centre Cora à Anderlecht : grande équipe de praticiens, parking gratuit, ouvert 6j/7, accueil multilingue. Appelez le 02 493 53 53.",
       canonical: url,
+      breadcrumb: [["Accueil", "/"], ["Le cabinet", "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht"]],
       schema: [
         schema({
           url,

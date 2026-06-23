@@ -120,7 +120,7 @@ export function zigzag({ id = "", eyebrow: eb, title, paras = [], bullets = [], 
     + (bullets.length ? `<ul class="wc-bullets">${bullets.map(([ic, b]) => `<li><span class="wc-chip">${dentalIcon(ic, 18)}</span><span>${b}</span></li>`).join("")}</ul>` : "")
     + (cta ? `<div class="wc-zig-cta">${cta}</div>` : "")
     + `</div>`;
-  const pic = `<div class="wc-zig-pic">${image ? `<img src="${image}" alt="${alt || title}" loading="lazy" decoding="async">` : tile(null, { ratio: "4/5", radius: 18 })}</div>`;
+  const pic = `<div class="wc-zig-pic">${image ? `<img src="${image}" alt="${alt || title}" width="720" height="900" loading="lazy" decoding="async">` : tile(null, { ratio: "4/5", radius: 18 })}</div>`;
   const inner = imageSide === "left" ? pic + text : text + pic;
   return `<section class="wc-zig"${id ? ` id="${id}"` : ""}><div class="wc-container"><div class="wc-glass-card"><div class="wc-zig-grid">${inner}</div></div></div></section>`;
 }

@@ -198,6 +198,7 @@ export default function () {
       title: "Orthodontiste à Anderlecht | Bagues & aligneurs adultes et enfants",
       description: "Orthodontiste à Anderlecht : bagues métal, céramique, lingual ou aligneurs transparents. Enfants et adultes. 4,6/5 · 191 avis. Appelez le +32 2 493 53 53.",
       canonical: url,
+      breadcrumb: [["Accueil", "/"], ["Orthodontie", "/orthodontie-anderlecht"]],
       specialist: true,
       schema: [
         schema({ url, name: "White & Care · Orthodontie", description: "Orthodontiste à Anderlecht (Bruxelles) : bagues métalliques, céramiques, orthodontie linguale et aligneurs transparents pour enfants, adolescents et adultes." }),

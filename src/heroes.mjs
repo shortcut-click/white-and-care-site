@@ -21,7 +21,7 @@ export function heroHome() {
     </div>
     <figure class="wc-hero-figure">
       <div class="glow"></div>
-      <div class="frame"><img src="/assets/photos/img-14.avif" alt="Patient souriant · White & Care" fetchpriority="high"></div>
+      <div class="frame"><img src="/assets/photos/img-14.avif" alt="Patient souriant · White & Care" width="600" height="680" fetchpriority="high"></div>
       <div class="wc-card wc-rating-badge">
         <span class="wc-stat">4,6</span>
         <span>${stars(5)}<span style="display:block;margin-top:3px;font-size:12.5px;color:var(--wc-muted)">191 avis Google</span></span>
@@ -76,7 +76,7 @@ export function pageHeroSplit({ eyebrow, title, lead, image, alt, primaryLabel =
   </div>
   <figure>
     <div class="glow"></div>
-    <div class="frame"><img src="${image}" alt="${alt || title}" fetchpriority="high"></div>
+    <div class="frame"><img src="${image}" alt="${alt || title}" width="750" height="600" fetchpriority="high"></div>
   </figure>
 </div></div></section>`;
 }

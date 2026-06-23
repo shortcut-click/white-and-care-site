@@ -27,7 +27,30 @@ const FOOTER_COLS = [
   ]],
 ];
 
-function head({ title, description, canonical, ogImage, schema }) {
+// BreadcrumbList JSON-LD from a [label, path][] trail (production URLs).
+function breadcrumbLd(crumbs) {
+  return {
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: crumbs.map(([n, h], i) => ({
+      "@type": "ListItem", position: i + 1, name: n,
+      item: h.startsWith("http") ? h : SITE + (h === "/" ? "/" : h),
+    })),
+  };
+}
+
+// Visible breadcrumb bar (light background; internal links get base-prefixed at build).
+function breadcrumbBar(crumbs) {
+  if (!crumbs || !crumbs.length) return "";
+  const items = crumbs.map((c, i) => {
+    const sep = i > 0 ? ui.chevron(14) : "";
+    return i === crumbs.length - 1
+      ? `${sep}<span class="cur" aria-current="page">${c[0]}</span>`
+      : `${sep}<a href="${c[1]}">${c[0]}</a>`;
+  }).join("");
+  return `<nav class="wc-breadcrumb-bar" aria-label="Fil d'Ariane"><div class="wc-container"><div class="wc-breadcrumb">${items}</div></div></nav>`;
+}
+
+function head({ title, description, canonical, ogImage, schema, breadcrumb }) {
   const og = ogImage || `${SITE}/assets/photos/cabinet-hero.jpeg`;
   const url = canonical || SITE + "/";
   return `<!DOCTYPE html>
@@ -56,8 +79,10 @@ function head({ title, description, canonical, ogImage, schema }) {
 <meta name="twitter:image" content="${og}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="/assets/styles.css">
 ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ""}
+${breadcrumb && breadcrumb.length ? `<script type="application/ld+json">${JSON.stringify(breadcrumbLd(breadcrumb))}</script>` : ""}
 </head>`;
 }
 
@@ -130,6 +155,7 @@ ${ambient()}
 <a class="wc-skip" href="#main">Aller au contenu principal</a>
 ${header()}
 <main id="main">
+${breadcrumbBar(meta.breadcrumb)}
 ${body}
 </main>
 ${footer(meta)}

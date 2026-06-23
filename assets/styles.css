@@ -5,7 +5,8 @@
    One job per colour · glass cards · one violet→blue gradient · Poppins.
    ========================================================================== */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
+/* Poppins is loaded via <link rel="stylesheet"> in the document <head>
+   (non-render-blocking with preconnect) — not via @import here. */
 
 /* ---- Colour tokens (one job each) ---- */
 :root {
@@ -394,6 +395,14 @@ img { max-width: 100%; }
 .wc-breadcrumb a:hover { color: #fff; text-decoration: none; }
 .wc-breadcrumb .cur { color: #fff; }
 .wc-breadcrumb svg { opacity: 0.6; }
+
+/* Light-background breadcrumb bar (top of inner pages) */
+.wc-breadcrumb-bar { padding: 16px 16px 0; }
+.wc-breadcrumb-bar .wc-breadcrumb { margin-bottom: 0; flex-wrap: wrap; }
+.wc-breadcrumb-bar .wc-breadcrumb a, .wc-breadcrumb-bar .wc-breadcrumb span { color: var(--wc-muted); }
+.wc-breadcrumb-bar .wc-breadcrumb a:hover { color: var(--wc-violet); text-decoration: none; }
+.wc-breadcrumb-bar .wc-breadcrumb .cur { color: var(--wc-ink); }
+.wc-breadcrumb-bar .wc-breadcrumb svg { color: var(--wc-faint); }
 
 /* split variant */
 .wc-pagehero-split { padding: 28px 16px 8px; }

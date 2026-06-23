@@ -216,6 +216,7 @@ export default function () {
       title: "Blanchiment dentaire à Anderlecht (Bruxelles) | White & Care",
       description: "Blanchiment dentaire professionnel à Anderlecht, en cabinet ou en kit supervisé par nos dentistes. Sûr pour l'émail, indolore. 4,6/5. Appelez le cabinet.",
       canonical: url,
+      breadcrumb: [["Accueil", "/"], ["Blanchiment dentaire", "/blanchiment-dentaire-cabinet-dentaire-anderlecht"]],
       schema: [
         schema({ url, name: "White & Care · Blanchiment dentaire", description: "Blanchiment dentaire professionnel à Anderlecht (Bruxelles), en cabinet ou en kit supervisé par des dentistes qualifiés. Soin esthétique sûr pour l'émail, dans le cadre légal UE." }),
         faqSchema(faq),

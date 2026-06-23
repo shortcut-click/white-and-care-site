@@ -195,6 +195,7 @@ export default function () {
       title: "Urgence dentaire Anderlecht | Pris en charge le jour même",
       description: "Urgence dentaire à Anderlecht : rage de dent, abcès, dent cassée traités en priorité. Lun-sam 10h-18h30, créneaux d'urgence. Appelez le +32 2 493 53 53.",
       canonical: url,
+      breadcrumb: [["Accueil", "/"], ["Urgence dentaire", "/urgence-dentaire-anderlecht"]],
       schema: [
         schema({
           url,

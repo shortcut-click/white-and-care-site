@@ -182,6 +182,7 @@ export default function () {
       title: "Implant Dentaire Anderlecht | Pose par Chirurgiens | White & Care",
       description: "Implant dentaire à Anderlecht posé par des chirurgiens spécialisés. Implant titane ou zircone, dent fixe et durable. Devis transparent. Appelez le cabinet.",
       canonical: url,
+      breadcrumb: [["Accueil", "/"], ["Implant dentaire", "/implant-dentaire"]],
       specialist: true,
       schema: [
         schema({ url, name: "White & Care · Implant dentaire", description: "Pose d'implants dentaires à Anderlecht par des chirurgiens spécialisés en implantologie : titane ou zircone, dent fixe et durable, devis personnalisé et transparent." }),

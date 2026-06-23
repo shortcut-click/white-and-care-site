@@ -172,6 +172,7 @@ export default function () {
       title: "Dentiste conventionné Anderlecht | Tarifs INAMI | White & Care",
       description: "Une grande équipe de dentistes conventionnés INAMI à Anderlecht : tarifs officiels, remboursement mutuelle clair, sans mauvaise surprise. Appelez le cabinet.",
       canonical: url,
+      breadcrumb: [["Accueil", "/"], ["Dentiste conventionné", "/dentiste-conventionne"]],
       schema: [
         schema({ url, name: "White & Care · Dentiste conventionné", description: "Dentiste conventionné INAMI à Anderlecht : tarifs officiels, remboursement mutuelle, ticket modérateur, trajet de soins buccaux, BIM et tiers payant expliqués." }),
         faqSchema(faq),
