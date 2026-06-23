@@ -14,7 +14,8 @@ const DIST = join(ROOT, "dist");
 // project sites served at https://user.github.io/<repo>/). When set, every
 // root-absolute URL (href="/…", src="/…") is prefixed, and pages are marked
 // noindex so the preview deploy never competes with the production domain.
-const BASE = (process.env.WC_BASE || "").replace(/\/$/, "");
+const _b = (process.env.WC_BASE || "").trim().replace(/^\/+|\/+$/g, "");
+const BASE = _b ? "/" + _b : "";
 
 function applyBase(html) {
   if (!BASE) return html;
