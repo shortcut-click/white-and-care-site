@@ -1,0 +1,10 @@
+{
+  "name": "whiteandcare-site",
+  "version": "1.0.0",
+  "description": "White & Care — site statique (design system appliqué au site d'origine)",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs && npx --yes serve dist -l 4321"
+  }
+}
