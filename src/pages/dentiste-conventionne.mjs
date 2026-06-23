@@ -37,7 +37,7 @@ export default function () {
       lead: "Au centre commercial Cora, bénéficiez d'une grande équipe de dentistes, dont de nombreux praticiens conventionnés : tarifs officiels INAMI, remboursement mutuelle clair et facture sans mauvaise surprise.",
       image: "/assets/photos/cabinet-hero.jpeg",
       alt: "Cabinet dentaire White & Care à Anderlecht",
-      secondary: { label: "Découvrir nos soins", href: "#soins" },
+      secondary: { label: "Découvrir nos soins", href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht#soins" },
     }),
 
     glassBlock({

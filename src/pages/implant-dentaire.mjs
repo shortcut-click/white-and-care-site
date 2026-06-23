@@ -39,7 +39,7 @@ export default function () {
       lead: "Perdre une dent change le quotidien : on mâche d'un seul côté, on hésite à sourire. Chez White & Care, la pose est assurée par des chirurgiens spécialisés en implantologie, dans un cabinet où l'on prend le temps de vous expliquer chaque étape.",
       image: "/assets/photos/implant-1.avif",
       alt: "Pose d'un implant dentaire par un chirurgien spécialisé à Anderlecht",
-      secondary: { label: "Voir notre cabinet", href: "/cabinet" },
+      secondary: { label: "Voir notre cabinet", href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht" },
     }),
 
     glassBlock({
