@@ -1,4 +1,4 @@
-import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE } from "../lib.mjs";
+import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
 import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
 
@@ -166,6 +166,12 @@ export default function () {
     }),
 
     faqSection({ title: "Vos questions sur les implants dentaires", items: faq }),
+    relatedServices([
+      { href: "/urgence-dentaire-anderlecht", icon: "alert-tooth", title: "Urgence dentaire", body: "Dent cassée ou expulsée : agissez vite." },
+      { href: "/orthodontie-anderlecht", icon: "smile", title: "Orthodontie", body: "Aligner vos dents avant ou après une pose." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "clipboard", title: "Le cabinet à Anderlecht", body: "Chirurgiens et plateau technique sur place." },
+    ]),
+
     reviewsSection(),
     ctaBanner("Une dent manquante ? Parlons de votre implant dès aujourd'hui."),
   ].join("\n");

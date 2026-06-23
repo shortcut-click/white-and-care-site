@@ -176,3 +176,15 @@ export function statsStrip(stats) {
     + stats.map(([n, l]) => `<div><div class="wc-stat">${n}</div><div class="lbl">${l}</div></div>`).join("")
     + `</div></div></div></section>`;
 }
+
+// "Soins associés" · related-services module (hub-and-spoke internal linking).
+// Each item: { href, icon, title, body }. Renders descriptive, crawlable links.
+export function relatedServices(items, { eyebrow: eb = "Pour aller plus loin", title = "Soins associés" } = {}) {
+  const cards = items.map(({ href, icon = "tooth", title: t, body = "" }) =>
+    `<a class="wc-card wc-related-card" href="${href}">`
+    + `<span class="wc-chip">${dentalIcon(icon, 24)}</span>`
+    + `<span class="wc-related-txt"><span class="t">${t}</span>${body ? `<span class="d">${body}</span>` : ""}</span>`
+    + `<span class="wc-related-arrow">${ui.arrow(16)}</span></a>`).join("");
+  return `<section class="wc-section-lg"><div class="wc-container">${sectionHead({ eyebrow: eb, title, center: true })}`
+    + `<div class="wc-cards-3 wc-related" style="margin-top:24px">${cards}</div></div></section>`;
+}

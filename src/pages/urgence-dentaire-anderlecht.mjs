@@ -1,4 +1,4 @@
-import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE } from "../lib.mjs";
+import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
 import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
 
@@ -81,7 +81,7 @@ export default function () {
         {
           icon: "alert-tooth",
           title: "Rage de dent (douleur intense, pulpite)",
-          body: "Une douleur vive, lancinante, qui irradie ou empire la nuit signale souvent que le nerf est touché (pulpite). Un antidouleur adapté soulage temporairement, mais seul un traitement met fin à la douleur. Appelez-nous : selon le cas, un soin de la carie ou un " + link("traitement de la racine", "/endodontie") + " règle le problème.",
+          body: "Une douleur vive, lancinante, qui irradie ou empire la nuit signale souvent que le nerf est touché (pulpite). Un antidouleur adapté soulage temporairement, mais seul un traitement met fin à la douleur. Appelez-nous : selon le cas, un soin de la carie ou un traitement de la racine (endodontie) règle le problème.",
         },
         {
           icon: "heart-care",
@@ -177,6 +177,12 @@ export default function () {
     }),
 
     faqSection({ title: "Questions fréquentes sur l'urgence dentaire", items: faq }),
+
+    relatedServices([
+      { href: "/implant-dentaire", icon: "implant", title: "Implant dentaire", body: "Remplacer durablement une dent perdue." },
+      { href: "/dentiste-conventionne", icon: "euro", title: "Dentiste conventionné", body: "Tarifs officiels et remboursement mutuelle." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "clipboard", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au centre Cora." },
+    ]),
 
     reviewsSection(),
 

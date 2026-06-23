@@ -1,4 +1,4 @@
-import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE } from "../lib.mjs";
+import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
 import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
 
@@ -172,6 +172,12 @@ export default function () {
     langueSection(LANGUE),
 
     faqSection({ title: "Vos questions fréquentes sur l'orthodontie", items: faq }),
+
+    relatedServices([
+      { href: "/invisalign", icon: "sparkle-tooth", title: "Invisalign", body: "Des aligneurs transparents et amovibles." },
+      { href: "/blanchiment-dentaire-cabinet-dentaire-anderlecht", icon: "smile", title: "Blanchiment dentaire", body: "Un sourire plus lumineux après le traitement." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "clipboard", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au centre Cora." },
+    ]),
 
     reviewsSection(),
 

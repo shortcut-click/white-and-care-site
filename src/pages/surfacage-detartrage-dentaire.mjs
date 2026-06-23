@@ -1,4 +1,4 @@
-import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE } from "../lib.mjs";
+import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
 import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
 
@@ -189,6 +189,12 @@ export default function () {
       alt: "Prendre rendez-vous pour un détartrage à Anderlecht",
       cta: btn("Appelez White & Care : " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true }),
     }),
+
+    relatedServices([
+      { href: "/dentiste-conventionne", icon: "euro", title: "Dentiste conventionné", body: "Tarifs officiels INAMI et meilleur remboursement." },
+      { href: "/blanchiment-dentaire-cabinet-dentaire-anderlecht", icon: "sparkle-tooth", title: "Blanchiment dentaire", body: "Des dents propres avant un blanchiment réussi." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "smile", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au centre Cora." },
+    ]),
 
     reviewsSection(),
 

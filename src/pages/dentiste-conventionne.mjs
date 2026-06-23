@@ -1,4 +1,4 @@
-import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE } from "../lib.mjs";
+import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
 import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
 
@@ -156,6 +156,12 @@ export default function () {
     }),
 
     faqSection({ title: "Questions fréquentes sur le dentiste conventionné", items: faq }),
+    relatedServices([
+      { href: "/surfacage-detartrage-dentaire", icon: "brush", title: "Détartrage et surfaçage", body: "Soin courant remboursé, à intervalles réguliers." },
+      { href: "/urgence-dentaire-anderlecht", icon: "alert-tooth", title: "Urgence dentaire", body: "Douleur ou abcès : pris en charge le jour même." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "smile", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au centre Cora." },
+    ]),
+
     reviewsSection(),
     ctaBanner("Un dentiste conventionné à Anderlecht, des tarifs clairs et sans mauvaise surprise. Appelez-nous."),
   ].join("\n");

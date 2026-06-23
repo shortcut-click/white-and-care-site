@@ -1,4 +1,4 @@
-import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE } from "../lib.mjs";
+import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
 import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
 
@@ -198,6 +198,12 @@ export default function () {
     langueSection("Chaque patient mérite de se sentir compris. Selon le praticien, vous pouvez être suivi en français, néerlandais, anglais, espagnol, arabe et d'autres langues encore. Pour la prise de rendez-vous par téléphone, l'accueil se fait principalement en français, anglais ou arabe. Pensez à préciser votre langue dès l'appel."),
 
     faqSection({ title: "Questions fréquentes sur le blanchiment dentaire", items: faq }),
+
+    relatedServices([
+      { href: "/surfacage-detartrage-dentaire", icon: "brush", title: "Détartrage et surfaçage", body: "La meilleure base avant un blanchiment." },
+      { href: "/orthodontie-anderlecht", icon: "smile", title: "Orthodontie", body: "Aligner puis blanchir pour un sourire complet." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "clipboard", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au centre Cora." },
+    ]),
 
     reviewsSection(),
 
