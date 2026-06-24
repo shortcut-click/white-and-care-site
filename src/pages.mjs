@@ -1,6 +1,7 @@
 // White & Care · page registry. Each landing page lives in its own module
 // under ./pages/ (rewritten from the per-page SEO briefs in site/seo/).
 import { SITE } from "./partials.mjs";
+import { btn, ui } from "./lib.mjs";
 
 import home from "./pages/home.mjs";
 import conventionne from "./pages/dentiste-conventionne.mjs";
@@ -62,6 +63,32 @@ function mentions() {
   };
 }
 
+/* ============================================================ 404 */
+function notFound() {
+  const links = [
+    ["Accueil", "/"],
+    ["Dentiste conventionné", "/dentiste-conventionne"],
+    ["Urgence dentaire", "/urgence-dentaire-anderlecht"],
+    ["Le cabinet", "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht"],
+  ];
+  const body = `<section class="wc-pagehero"><div class="wc-container"><div class="wc-glass-card" style="padding:48px;text-align:center;max-width:720px;margin:0 auto">
+  <p class="wc-eyebrow" style="justify-content:center">Erreur 404</p>
+  <h1 style="font-size:40px;margin-top:12px">Cette page est introuvable</h1>
+  <p class="wc-lead" style="color:var(--wc-muted);margin:14px auto 0;max-width:48ch">La page que vous cherchez a peut-être été déplacée ou n'existe plus. Voici quelques liens utiles pour retrouver votre chemin.</p>
+  <div class="wc-pagehero-actions" style="justify-content:center;margin-top:26px">${btn("Prendre rendez-vous", { variant: "primary", iconLeft: ui.phone(15), book: true })}</div>
+  <nav class="wc-breadcrumb" style="justify-content:center;flex-wrap:wrap;gap:10px 18px;margin-top:26px">${links.map(([l, h]) => `<a href="${h}">${l}</a>`).join("")}</nav>
+</div></div></section>`;
+  return {
+    path: "404.html",
+    meta: {
+      title: "Page introuvable (404) | White & Care",
+      description: "La page demandée est introuvable. Retrouvez nos soins dentaires, l'urgence dentaire et le cabinet White & Care à Anderlecht.",
+      noindex: true,
+    },
+    body,
+  };
+}
+
 export function allPages() {
-  return [home(), conventionne(), implant(), invisalign(), orthodontie(), blanchiment(), surfacage(), urgence(), cabinet(), mentions()];
+  return [home(), conventionne(), implant(), invisalign(), orthodontie(), blanchiment(), surfacage(), urgence(), cabinet(), mentions(), notFound()];
 }

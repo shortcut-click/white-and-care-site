@@ -1,9 +1,16 @@
-import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
+import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices, compareTable } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
-import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
+import { SITE, schema, faqSchema, howToSchema, LANGUE } from "../seo-helpers.mjs";
 
 export default function () {
   const url = SITE + "/implant-dentaire";
+
+  const poseSteps = [
+    { title: "Le bilan et le plan de traitement", body: "Examen complet et, le plus souvent, imagerie 3D pour évaluer le volume d'os. Le chirurgien établit un plan personnalisé et vous remet un devis détaillé avant toute intervention." },
+    { title: "La pose de l'implant", body: "Sous anesthésie locale, lors d'une intervention courte et précise. Le chirurgien place l'implant dans l'os puis referme la gencive. La plupart des patients reprennent une activité normale dès le lendemain." },
+    { title: "La cicatrisation et l'ostéo-intégration", body: "Pendant les semaines qui suivent, l'os se lie à l'implant. Une dent provisoire peut être prévue pour que vous ne restiez jamais avec un trou visible." },
+    { title: "La couronne définitive", body: "Une fois l'implant intégré, le pilier puis la couronne sur mesure sont mis en place, ajustés en teinte et en forme. Vous repartez avec une dent fixe et naturelle." },
+  ];
 
   const faq = [
     ["La pose d'un implant est-elle douloureuse ?",
@@ -79,12 +86,7 @@ export default function () {
       title: "La pose d'un implant dentaire, étape par étape",
       intro: "La pose n'est pas une intervention unique mais un parcours encadré qui s'étale sur quelques mois, le temps que l'os intègre l'implant.",
       cols: 4,
-      steps: [
-        { title: "Le bilan et le plan de traitement", body: "Examen complet et, le plus souvent, imagerie 3D pour évaluer le volume d'os. Le chirurgien établit un plan personnalisé et vous remet un devis détaillé avant toute intervention." },
-        { title: "La pose de l'implant", body: "Sous anesthésie locale, lors d'une intervention courte et précise. Le chirurgien place l'implant dans l'os puis referme la gencive. La plupart des patients reprennent une activité normale dès le lendemain." },
-        { title: "La cicatrisation et l'ostéo-intégration", body: "Pendant les semaines qui suivent, l'os se lie à l'implant. Une dent provisoire peut être prévue pour que vous ne restiez jamais avec un trou visible." },
-        { title: "La couronne définitive", body: "Une fois l'implant intégré, le pilier puis la couronne sur mesure sont mis en place, ajustés en teinte et en forme. Vous repartez avec une dent fixe et naturelle." },
-      ],
+      steps: poseSteps,
     }),
 
     glassBlock({
@@ -131,6 +133,22 @@ export default function () {
       cta: link("Découvrez aussi l'orthodontie à Anderlecht", "/orthodontie-anderlecht"),
     }),
 
+    compareTable({
+      eyebrow: "Tableau comparatif",
+      title: "Implant, bridge ou prothèse amovible : le comparatif",
+      intro: "Trois solutions pour remplacer une ou plusieurs dents manquantes, comparées sur les critères qui comptent au quotidien.",
+      headers: ["Critère", "Implant dentaire", "Bridge classique", "Prothèse amovible"],
+      rows: [
+        ["Tenue", "Fixe, ancré dans l'os", "Fixe, collé sur les dents voisines", "Amovible, repose sur la gencive"],
+        ["Dents voisines", "Préservées, rien à tailler", "Doivent être taillées", "Préservées"],
+        ["Fonte osseuse", "Prévenue (l'os est sollicité)", "Non prévenue", "Non prévenue"],
+        ["Sensation", "Très proche d'une dent naturelle", "Proche du naturel", "Peut bouger en mangeant"],
+        ["Entretien", "Comme une dent naturelle", "Brossage + nettoyage sous le bridge", "À retirer pour le nettoyage"],
+        ["Durée de vie", "Souvent toute une vie", "Plusieurs années", "À renouveler plus souvent"],
+      ],
+      note: "Le bon choix se décide en consultation selon l'état de vos dents voisines, le volume d'os et votre budget. Nos chirurgiens vous orientent vers la solution la plus adaptée.",
+    }),
+
     glassBlock({
       eyebrow: "Le devis",
       title: "Le prix d'un implant dentaire : ce qui entre dans le devis",
@@ -145,8 +163,8 @@ export default function () {
 
     statsStrip([
       ["4,6/5", "Note sur 191 avis Google"],
-      ["~9", "Dentistes, dont chirurgiens implantologues"],
-      ["Lun-Sam", "Ouvert de 10h à 18h30"],
+      ["Chirurgiens", "spécialisés en implantologie"],
+      ["Lun-Sam", "Ouvert de 10h à 19h"],
       ["Cora", "Parking gratuit à Anderlecht"],
     ]),
 
@@ -154,7 +172,7 @@ export default function () {
       eyebrow: "SEO local",
       title: "Votre cabinet d'implantologie à Anderlecht",
       paras: [
-        "White & Care réunit une équipe pluridisciplinaire, dont des chirurgiens spécialisés en implantologie, au cœur du centre commercial Cora à Anderlecht. Vous bénéficiez d'un parking gratuit Cora, d'un accueil multilingue et d'une ouverture du lundi au samedi de 10h à 18h30.",
+        "White & Care réunit une équipe pluridisciplinaire, dont des chirurgiens spécialisés en implantologie, au cœur du centre commercial Cora à Anderlecht. Vous bénéficiez d'un parking gratuit Cora, d'un accueil multilingue et d'une ouverture du lundi au samedi de 10h à 19h.",
         "Nous accueillons les patients d'Anderlecht, Cureghem, Neerpede et plus largement du sud-ouest de Bruxelles : Forest, Saint-Gilles, Drogenbos et Dilbeek. Pour planifier votre première consultation implant, appelez le " + PHONE + ".",
       ],
       checks: [
@@ -185,8 +203,9 @@ export default function () {
       breadcrumb: [["Accueil", "/"], ["Implant dentaire", "/implant-dentaire"]],
       specialist: true,
       schema: [
-        schema({ url, name: "White & Care · Implant dentaire", description: "Pose d'implants dentaires à Anderlecht par des chirurgiens spécialisés en implantologie : titane ou zircone, dent fixe et durable, devis personnalisé et transparent." }),
+        schema({ url, type: "MedicalWebPage", name: "White & Care · Implant dentaire", description: "Pose d'implants dentaires à Anderlecht par des chirurgiens spécialisés en implantologie : titane ou zircone, dent fixe et durable, devis personnalisé et transparent." }),
         faqSchema(faq),
+        howToSchema({ name: "La pose d'un implant dentaire, étape par étape", description: "Le parcours d'une pose d'implant chez White & Care, du bilan à la couronne définitive.", steps: poseSteps }),
       ],
     },
     body,

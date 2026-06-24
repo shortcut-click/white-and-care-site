@@ -1,4 +1,4 @@
-import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
+import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices, compareTable } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
 import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
 
@@ -60,6 +60,21 @@ export default function () {
         { icon: "clipboard", title: "Partiellement conventionné", body: "Il respecte les tarifs officiels seulement certains jours ou certaines plages horaires. Le mieux est de demander quels créneaux sont conventionnés au moment de fixer le rendez-vous." },
         { icon: "euro", title: "Non conventionné", body: "Il fixe librement ses honoraires et peut facturer plus que le tarif officiel. Le supplément reste à votre charge, car la mutuelle ne rembourse que sur la base du tarif officiel." },
       ],
+    }),
+
+    compareTable({
+      eyebrow: "Tableau comparatif",
+      title: "Conventionné, partiellement ou non conventionné : le comparatif",
+      intro: "La différence porte uniquement sur les honoraires, jamais sur la qualité des soins. Voici ce que chaque statut change pour votre facture.",
+      headers: ["Critère", "Conventionné", "Partiellement conventionné", "Non conventionné"],
+      rows: [
+        ["Honoraires", "Tarifs officiels INAMI", "Tarifs officiels certains jours/heures", "Fixés librement"],
+        ["Supplément possible", "Non", "Selon le créneau", "Oui"],
+        ["Remboursement mutuelle", "Sur le tarif officiel", "Sur le tarif officiel", "Sur le tarif officiel"],
+        ["Reste à votre charge", "Ticket modérateur uniquement", "Ticket modérateur, ou plus hors créneau", "Ticket modérateur + supplément"],
+        ["Coût prévisible", "Oui, connu d'avance", "Selon le créneau choisi", "Variable"],
+      ],
+      note: "Chez White & Care, une grande équipe de dentistes conventionnés applique les tarifs officiels INAMI. Nous vous indiquons toujours le statut du praticien et le coût avant tout soin.",
     }),
 
     zigzag({
@@ -149,7 +164,7 @@ export default function () {
       eyebrow: "Prendre rendez-vous",
       title: "Prendre rendez-vous avec un dentiste conventionné",
       paras: [
-        "Pour consulter un dentiste conventionné à Anderlecht, le plus simple est de nous appeler au " + PHONE + ". Nous sommes ouverts du lundi au samedi, de 10h à 18h30, et le parking du centre commercial Cora est gratuit.",
+        "Pour consulter un dentiste conventionné à Anderlecht, le plus simple est de nous appeler au " + PHONE + ". Nous sommes ouverts du lundi au samedi, de 10h à 19h, et le parking du centre commercial Cora est gratuit.",
         "Indiquez-nous si vous souhaitez un praticien conventionné et dans quelle langue vous préférez être reçu : nous organiserons votre rendez-vous en conséquence. Le cabinet est facilement accessible depuis Molenbeek, Forest et Saint-Gilles.",
       ],
       cta: btn("Appeler le " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true }),
@@ -174,7 +189,7 @@ export default function () {
       canonical: url,
       breadcrumb: [["Accueil", "/"], ["Dentiste conventionné", "/dentiste-conventionne"]],
       schema: [
-        schema({ url, name: "White & Care · Dentiste conventionné", description: "Dentiste conventionné INAMI à Anderlecht : tarifs officiels, remboursement mutuelle, ticket modérateur, trajet de soins buccaux, BIM et tiers payant expliqués." }),
+        schema({ url, type: "MedicalWebPage", name: "White & Care · Dentiste conventionné", description: "Dentiste conventionné INAMI à Anderlecht : tarifs officiels, remboursement mutuelle, ticket modérateur, trajet de soins buccaux, BIM et tiers payant expliqués." }),
         faqSchema(faq),
       ],
     },

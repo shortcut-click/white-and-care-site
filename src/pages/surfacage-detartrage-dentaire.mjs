@@ -1,6 +1,6 @@
 import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
-import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
+import { SITE, schema, faqSchema, howToSchema, LANGUE } from "../seo-helpers.mjs";
 
 export default function () {
   const url = SITE + "/surfacage-detartrage-dentaire";
@@ -28,13 +28,20 @@ export default function () {
       "Chez un dentiste conventionné, les honoraires respectent les tarifs officiels, donc pas de supplément : vous ne payez que la part non couverte par la mutuelle. White & Care compte une grande équipe de dentistes, dont de nombreux praticiens conventionnés. Précisez-le lors de la prise de rendez-vous."],
   ];
 
+  const detartrageSteps = [
+    { title: "Évaluation", body: "Le praticien examine vos dents et vos gencives pour mesurer l'état du parodonte et déterminer si un simple détartrage suffit ou si un surfaçage est nécessaire." },
+    { title: "Nettoyage", body: "À l'aide d'instruments à ultrasons et, si besoin, d'instruments manuels, le tartre et la plaque sont retirés délicatement, y compris dans les zones difficiles d'accès." },
+    { title: "Polissage", body: "Les surfaces sont lissées et polies pour retarder le retour de la plaque et redonner de l'éclat aux dents." },
+    { title: "Conseils", body: "Vous repartez avec des recommandations d'hygiène adaptées à votre bouche, pour garder le bénéfice du soin le plus longtemps possible." },
+  ];
+
   const body = [
     pageHeroSplit({
       eyebrow: "Parodontologie",
       title: "Détartrage et surfaçage à Anderlecht : un sourire sain, sans douleur",
       lead: "Au cabinet White & Care, dans le centre commercial Cora à Anderlecht, notre équipe réalise des détartrages en douceur et des surfaçages plus approfondis quand les gencives ont besoin d'un soin particulier. L'objectif reste le même : des dents propres, des gencives saines, et une visite sans stress ni douleur.",
-      image: "/assets/photos/detartrage.avif",
-      alt: "Détartrage dentaire au cabinet White & Care à Anderlecht",
+      image: "/assets/photos/detartrage-anderlecht-sourire-sain.webp",
+      alt: "Sourire sain après un détartrage au cabinet White & Care à Anderlecht",
     }),
 
     statsStrip([
@@ -58,9 +65,9 @@ export default function () {
         ["heart-care", "Surfaçage : nettoyage en profondeur des racines, sous la gencive"],
         ["shield-tooth", "Un soin clé pour stopper une maladie des gencives à temps"],
       ],
-      image: "/assets/photos/detartrage.avif",
+      image: "/assets/photos/salle-de-soins-dentaire-anderlecht.webp",
       imageSide: "right",
-      alt: "Différence entre détartrage et surfaçage radiculaire",
+      alt: "Salle de soins du cabinet White & Care à Anderlecht pour le détartrage et le surfaçage",
     }),
 
     // H2 · Comment se déroule un detartrage chez White & Care (steps)
@@ -69,12 +76,7 @@ export default function () {
       title: "Comment se déroule un détartrage chez White & Care",
       intro: "Un soin simple et bien rodé, du premier examen jusqu'aux conseils que vous emportez. Beaucoup de patients appréhendent le dentiste : notre équipe y est habituée et avance à votre rythme, en vous expliquant chaque geste.",
       cols: 4,
-      steps: [
-        { title: "Évaluation", body: "Le praticien examine vos dents et vos gencives pour mesurer l'état du parodonte et déterminer si un simple détartrage suffit ou si un surfaçage est nécessaire." },
-        { title: "Nettoyage", body: "À l'aide d'instruments à ultrasons et, si besoin, d'instruments manuels, le tartre et la plaque sont retirés délicatement, y compris dans les zones difficiles d'accès." },
-        { title: "Polissage", body: "Les surfaces sont lissées et polies pour retarder le retour de la plaque et redonner de l'éclat aux dents." },
-        { title: "Conseils", body: "Vous repartez avec des recommandations d'hygiène adaptées à votre bouche, pour garder le bénéfice du soin le plus longtemps possible." },
-      ],
+      steps: detartrageSteps,
     }),
 
     // H3 · Est-ce que ca fait mal ? (reassurance indolore + anesthésie)
@@ -130,9 +132,9 @@ export default function () {
         ["heart-care", "Gingivite réversible si elle est prise à temps"],
         ["shield-tooth", "Surfaçage : le traitement de référence contre la parodontite"],
       ],
-      image: "/assets/photos/detartrage.avif",
+      image: "/assets/photos/gencives-saines-detartrage-anderlecht.webp",
       imageSide: "left",
-      alt: "Soin des gencives et parodontologie à Anderlecht",
+      alt: "Gencives saines après un soin de parodontologie à Anderlecht",
       cta: btn("Faites évaluer vos gencives : " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true }),
     }),
 
@@ -176,17 +178,17 @@ export default function () {
       eyebrow: "Prendre rendez-vous",
       title: "Prendre rendez-vous pour un détartrage à Anderlecht",
       paras: [
-        "Notre cabinet vous accueille dans le centre commercial Cora à Anderlecht, du lundi au samedi de 10h à 18h30, avec un parking gratuit. Facile d'accès depuis Molenbeek, Forest et Saint-Gilles, en voiture comme en transports en commun.",
+        "Notre cabinet vous accueille dans le centre commercial Cora à Anderlecht, du lundi au samedi de 10h à 19h, avec un parking gratuit. Facile d'accès depuis Molenbeek, Forest et Saint-Gilles, en voiture comme en transports en commun.",
         "Notre équipe est multilingue et notée 4,6 sur 5 par près de 191 patients sur Google. Pour réserver votre détartrage ou faire évaluer vos gencives, le plus simple est de nous appeler.",
       ],
       bullets: [
         ["shield-tooth", "Centre commercial Cora (1070 Anderlecht), parking gratuit"],
-        ["calendar-check", "Ouvert du lundi au samedi, de 10h à 18h30, sur rendez-vous"],
+        ["calendar-check", "Ouvert du lundi au samedi, de 10h à 19h, sur rendez-vous"],
         ["smile", "Équipe multilingue, notée 4,6/5 sur 191 avis Google"],
       ],
-      image: "/assets/photos/detartrage.avif",
+      image: "/assets/photos/cabinet-dentaire-white-and-care-anderlecht-cora.webp",
       imageSide: "right",
-      alt: "Prendre rendez-vous pour un détartrage à Anderlecht",
+      alt: "Entrée du cabinet White & Care au centre Cora à Anderlecht pour prendre rendez-vous",
       cta: btn("Appelez White & Care : " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true }),
     }),
 
@@ -213,10 +215,12 @@ export default function () {
       schema: [
         schema({
           url,
+          type: "MedicalWebPage",
           name: "White & Care · Détartrage & surfaçage",
           description: "Détartrage et surfaçage radiculaire à Anderlecht (centre Cora, 1070). Détartrage remboursé par la mutuelle chez un dentiste conventionné INAMI, indolore, ouvert du lundi au samedi.",
         }),
         faqSchema(faq),
+        howToSchema({ name: "Comment se déroule un détartrage", description: "Le déroulé d'un détartrage chez White & Care, de l'évaluation aux conseils d'hygiène.", steps: detartrageSteps }),
       ],
     },
     body,

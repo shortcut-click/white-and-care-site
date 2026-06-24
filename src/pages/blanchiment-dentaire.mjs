@@ -1,6 +1,6 @@
 import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
-import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
+import { SITE, schema, faqSchema, howToSchema, LANGUE } from "../seo-helpers.mjs";
 
 export default function () {
   const url = SITE + "/blanchiment-dentaire-cabinet-dentaire-anderlecht";
@@ -43,20 +43,26 @@ export default function () {
       </table>
     </div>`;
 
+  const seanceSteps = [
+    { title: "Examen préalable", body: "Nous vérifions vos dents et vos gencives. Le blanchiment ne s'applique que sur des dents saines. Un détartrage est réalisé au préalable si nécessaire, ce qui améliore aussi le résultat." },
+    { title: "Application du gel", body: "Le dentiste protège vos gencives, puis applique le gel de blanchiment sur vos dents. Dans certains cas, une lumière dédiée accélère l'action du produit." },
+    { title: "Résultat et conseils", body: "La séance dure généralement entre 60 et 90 minutes. Vous repartez avec un résultat visible et des conseils simples pour le faire durer dans le temps." },
+  ];
+
   const body = [
     pageHeroSplit({
       eyebrow: "Esthétique du sourire",
       title: "Blanchiment dentaire à Anderlecht",
       lead: "Un sourire plus lumineux, sans risque pour vos dents. Au centre commercial Cora à Anderlecht, notre équipe de dentistes réalise des blanchiments professionnels, en cabinet ou en kit supervisé à domicile. Un soin esthétique mené dans un cadre médical, par des praticiens qualifiés.",
-      image: "/assets/photos/img-14.avif",
-      alt: "Blanchiment dentaire professionnel en cabinet à Anderlecht",
+      image: "/assets/photos/blanchiment-dentaire-anderlecht-hero.webp",
+      alt: "Sourire éclatant aux dents blanches après un blanchiment à Anderlecht",
     }),
 
     statsStrip([
       ["4,6/5", "191 avis Google"],
       ["60-90 min", "Une séance en cabinet"],
       ["Indolore", "Soin esthétique encadré"],
-      ["Lun-Sam", "10h à 18h30"],
+      ["Lun-Sam", "10h à 19h"],
     ]),
 
     glassBlock({
@@ -91,11 +97,7 @@ export default function () {
       title: "Comment se déroule une séance chez White & Care",
       intro: "Un protocole clair, du premier examen aux conseils pour faire durer le résultat.",
       cols: 3,
-      steps: [
-        { title: "Examen préalable", body: "Nous vérifions vos dents et vos gencives. Le blanchiment ne s'applique que sur des dents saines. Un détartrage est réalisé au préalable si nécessaire, ce qui améliore aussi le résultat." },
-        { title: "Application du gel", body: "Le dentiste protège vos gencives, puis applique le gel de blanchiment sur vos dents. Dans certains cas, une lumière dédiée accélère l'action du produit." },
-        { title: "Résultat et conseils", body: "La séance dure généralement entre 60 et 90 minutes. Vous repartez avec un résultat visible et des conseils simples pour le faire durer dans le temps." },
-      ],
+      steps: seanceSteps,
     }),
 
     glassBlock({
@@ -120,9 +122,9 @@ export default function () {
         ["award", "Réalisé ou supervisé par un dentiste qualifié"],
         ["smile", "Gencives protégées et suivi du début à la fin"],
       ],
-      image: "/assets/photos/img-17.avif",
+      image: "/assets/photos/blanchiment-dentaire-sourire-lumineux-anderlecht.webp",
       imageSide: "left",
-      alt: "Dentiste qualifié supervisant un blanchiment dentaire à Anderlecht",
+      alt: "Sourire lumineux après un blanchiment dentaire supervisé à Anderlecht",
     }),
 
     glassBlock({
@@ -190,9 +192,9 @@ export default function () {
         ["smile", "Forme et couleur transformées sur la face visible"],
       ],
       cta: link("Voir notre cabinet à Anderlecht", "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht"),
-      image: "/assets/photos/img-17.avif",
+      image: "/assets/photos/blanchiment-resultat-sourire-eclatant-anderlecht.webp",
       imageSide: "right",
-      alt: "Sourire éclatant après un soin esthétique à Anderlecht",
+      alt: "Sourire éclatant aux dents blanches après un blanchiment à Anderlecht",
     }),
 
     langueSection("Chaque patient mérite de se sentir compris. Selon le praticien, vous pouvez être suivi en français, néerlandais, anglais, espagnol, arabe et d'autres langues encore. Pour la prise de rendez-vous par téléphone, l'accueil se fait principalement en français, anglais ou arabe. Pensez à préciser votre langue dès l'appel."),
@@ -218,8 +220,9 @@ export default function () {
       canonical: url,
       breadcrumb: [["Accueil", "/"], ["Blanchiment dentaire", "/blanchiment-dentaire-cabinet-dentaire-anderlecht"]],
       schema: [
-        schema({ url, name: "White & Care · Blanchiment dentaire", description: "Blanchiment dentaire professionnel à Anderlecht (Bruxelles), en cabinet ou en kit supervisé par des dentistes qualifiés. Soin esthétique sûr pour l'émail, dans le cadre légal UE." }),
+        schema({ url, type: "MedicalWebPage", name: "White & Care · Blanchiment dentaire", description: "Blanchiment dentaire professionnel à Anderlecht (Bruxelles), en cabinet ou en kit supervisé par des dentistes qualifiés. Soin esthétique sûr pour l'émail, dans le cadre légal UE." }),
         faqSchema(faq),
+        howToSchema({ name: "Comment se déroule une séance de blanchiment", description: "Le déroulé d'un blanchiment dentaire chez White & Care, de l'examen aux conseils.", steps: seanceSteps }),
       ],
     },
     body,

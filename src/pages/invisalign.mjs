@@ -1,6 +1,6 @@
-import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
+import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices, compareTable } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
-import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
+import { SITE, schema, faqSchema, howToSchema, LANGUE } from "../seo-helpers.mjs";
 
 export default function () {
   const url = SITE + "/invisalign";
@@ -30,30 +30,28 @@ export default function () {
       "Non. Les aligneurs exercent une pression douce et progressive, planifiée numériquement et suivie par votre orthodontiste. Comme ils sont amovibles, vous conservez un brossage et un passage du fil dentaire normaux, ce qui aide à préserver votre hygiène pendant tout le traitement."],
   ];
 
-  const comparatif = `<section class="wc-section-lg"><div class="wc-container">`
-    + sectionHead({ eyebrow: "Comparatif", title: "Invisalign ou bagues traditionnelles : quelles différences ?", intro: "Les deux méthodes corrigent l'alignement des dents, mais l'expérience au quotidien diffère beaucoup.", center: true })
-    + `<div class="wc-cards-2" style="margin-top:28px">`
-    + `<article class="wc-card"><span class="wc-chip">${dentalIcon("smile", 26)}</span><h3>Invisalign, aligneurs transparents</h3>`
-    + `<ul class="wc-checks">`
-    + `<li><span class="ic">${ui.check(20)}</span><span>Quasiment invisibles au quotidien</span></li>`
-    + `<li><span class="ic">${ui.check(20)}</span><span>Amovibles pour manger et l'hygiène</span></li>`
-    + `<li><span class="ic">${ui.check(20)}</span><span>Pas de fil ni de partie métallique coupante</span></li>`
-    + `<li><span class="ic">${ui.check(20)}</span><span>Aucune restriction alimentaire</span></li>`
-    + `<li><span class="ic">${ui.check(20)}</span><span>Brossage et fil dentaire normaux</span></li>`
-    + `<li><span class="ic">${ui.check(20)}</span><span>Simulation 3D du résultat avant de commencer</span></li>`
-    + `</ul></article>`
-    + `<article class="wc-card"><span class="wc-chip">${dentalIcon("tooth", 26)}</span><h3>Bagues traditionnelles</h3>`
-    + `<ul style="list-style:none;padding:0;margin:18px 0 0;display:grid;gap:12px">`
-    + `<li style="font-size:15px;line-height:1.5;color:var(--wc-body)">Visibles (brackets et fils)</li>`
-    + `<li style="font-size:15px;line-height:1.5;color:var(--wc-body)">Fixées en permanence, non amovibles</li>`
-    + `<li style="font-size:15px;line-height:1.5;color:var(--wc-body)">Frottements possibles sur les joues</li>`
-    + `<li style="font-size:15px;line-height:1.5;color:var(--wc-body)">Certains aliments déconseillés</li>`
-    + `<li style="font-size:15px;line-height:1.5;color:var(--wc-body)">Nettoyage plus délicat autour des fils</li>`
-    + `<li style="font-size:15px;line-height:1.5;color:var(--wc-body)">Pas de simulation préalable du résultat</li>`
-    + `</ul></article>`
-    + `</div>`
-    + `<p style="margin-top:22px;font-size:15.5px;line-height:1.65;color:var(--wc-body)">Pour beaucoup de patients, la discrétion et la liberté de retirer les aligneurs font la différence. Les ${link("bagues traditionnelles", "/orthodontie-anderlecht")} restent toutefois indiquées dans certaines situations : votre praticien vous orientera vers la solution la mieux adaptée lors du bilan.</p>`
-    + `</div></section>`;
+  const parcoursSteps = [
+    { title: "Scanner 3D et empreinte numérique", body: "Sans moulage en pâte désagréable : l'empreinte est numérique, rapide et précise. Cette image en trois dimensions sert de base à tout votre traitement." },
+    { title: "Simulation ClinCheck", body: "Grâce à la technologie ClinCheck, nous visualisons avec vous le déplacement de vos dents, étape par étape, et le résultat final, avant même de commencer." },
+    { title: "Fabrication sur mesure", body: "Une fois le plan validé, vos aligneurs transparents sont fabriqués sur mesure. Vous les portez 20 à 22 heures par jour et passez au jeu suivant toutes les une à deux semaines." },
+    { title: "Suivi avec votre orthodontiste", body: "Des rendez-vous réguliers vérifient que vos dents se déplacent comme prévu. Notre cabinet est reconnu Invisalign Provider : un praticien formé à la méthode vous suit à Anderlecht." },
+  ];
+
+  const comparatif = compareTable({
+    eyebrow: "Comparatif",
+    title: "Invisalign ou bagues traditionnelles : quelles différences ?",
+    intro: "Les deux méthodes corrigent l'alignement des dents, mais l'expérience au quotidien diffère beaucoup.",
+    headers: ["Critère", "Invisalign (aligneurs transparents)", "Bagues traditionnelles"],
+    rows: [
+      ["Discrétion", "Quasiment invisibles", "Visibles (brackets et fils)"],
+      ["Amovibles", "Oui, pour manger et l'hygiène", "Non, fixées en permanence"],
+      ["Alimentation", "Aucune restriction", "Certains aliments déconseillés"],
+      ["Hygiène", "Brossage et fil dentaire normaux", "Nettoyage plus délicat autour des fils"],
+      ["Confort", "Pas de partie métallique coupante", "Frottements possibles sur les joues"],
+      ["Résultat", "Simulation 3D avant de commencer", "Pas de simulation préalable"],
+    ],
+    note: "Pour beaucoup de patients, la discrétion et la liberté de retirer les aligneurs font la différence. Les " + link("bagues traditionnelles", "/orthodontie-anderlecht") + " restent toutefois indiquées dans certaines situations : votre praticien vous orientera vers la solution la mieux adaptée lors du bilan.",
+  });
 
   const body = [
     pageHeroSplit({
@@ -83,12 +81,7 @@ export default function () {
       title: "Votre parcours Invisalign chez White & Care",
       intro: "Tout commence par un bilan dans notre cabinet d'Anderlecht. Voici comment se déroule un traitement, du premier scanner au sourire final.",
       cols: 4,
-      steps: [
-        { title: "Scanner 3D et empreinte numérique", body: "Sans moulage en pâte désagréable : l'empreinte est numérique, rapide et précise. Cette image en trois dimensions sert de base à tout votre traitement." },
-        { title: "Simulation ClinCheck", body: "Grâce à la technologie ClinCheck, nous visualisons avec vous le déplacement de vos dents, étape par étape, et le résultat final, avant même de commencer." },
-        { title: "Fabrication sur mesure", body: "Une fois le plan validé, vos aligneurs transparents sont fabriqués sur mesure. Vous les portez 20 à 22 heures par jour et passez au jeu suivant toutes les une à deux semaines." },
-        { title: "Suivi avec votre orthodontiste", body: "Des rendez-vous réguliers vérifient que vos dents se déplacent comme prévu. Notre cabinet est reconnu Invisalign Provider : un praticien formé à la méthode vous suit à Anderlecht." },
-      ],
+      steps: parcoursSteps,
     }),
 
     glassBlock({
@@ -129,9 +122,9 @@ export default function () {
         ["smile", "Aucune restriction alimentaire : gouttières retirées pour manger"],
         ["shield-tooth", "Rincez et nettoyez doucement vos aligneurs chaque jour, rangez-les dans leur boîtier"],
       ],
-      image: "/assets/photos/invisalign.avif",
+      image: "/assets/photos/invisalign-boitier-gouttiere-anderlecht.webp",
       imageSide: "right",
-      alt: "Entretien des gouttières Invisalign White & Care",
+      alt: "Boîtier et gouttière Invisalign transparente, entretien au quotidien",
     }),
 
     glassBlock({
@@ -151,7 +144,7 @@ export default function () {
         { icon: "scanner", title: "Scanner 3D et ClinCheck sur place", body: "Empreinte numérique sans moulage et visualisation de votre résultat avant de commencer." },
         { icon: "award", title: "Orthodontiste Invisalign Provider", body: "Un suivi par un praticien formé à la méthode, du premier scanner au sourire final." },
         { icon: "smile", title: "Une équipe multilingue", body: "Vous êtes accueilli en français, néerlandais, anglais, espagnol, arabe et d'autres langues selon le praticien." },
-        { icon: "shield-tooth", title: "Accessible et pratique", body: "Au centre commercial Cora à Anderlecht, parking gratuit, ouvert du lundi au samedi de 10h à 18h30." },
+        { icon: "shield-tooth", title: "Accessible et pratique", body: "Au centre commercial Cora à Anderlecht, parking gratuit, ouvert du lundi au samedi de 10h à 19h." },
         { icon: "heart-care", title: "La confiance des patients", body: "4,6/5 sur environ 191 avis Google, dans le sud-ouest de Bruxelles." },
         { icon: "calendar-check", title: "Un seul geste : appelez", body: "Nous fixons votre bilan, réalisons le scanner 3D et vous montrons votre futur sourire." },
       ],
@@ -188,8 +181,9 @@ export default function () {
       breadcrumb: [["Accueil", "/"], ["Invisalign", "/invisalign"]],
       specialist: true,
       schema: [
-        schema({ url, name: "White & Care : Invisalign", description: "Traitement Invisalign à Anderlecht et Bruxelles : aligneurs transparents sur mesure, scanner 3D, simulation ClinCheck et suivi par un orthodontiste Invisalign Provider." }),
+        schema({ url, type: "MedicalWebPage", name: "White & Care : Invisalign", description: "Traitement Invisalign à Anderlecht et Bruxelles : aligneurs transparents sur mesure, scanner 3D, simulation ClinCheck et suivi par un orthodontiste Invisalign Provider." }),
         faqSchema(faq),
+        howToSchema({ name: "Votre parcours Invisalign chez White & Care", description: "Les étapes d'un traitement Invisalign, du scanner 3D au suivi par l'orthodontiste.", steps: parcoursSteps }),
       ],
     },
     body,

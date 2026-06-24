@@ -17,9 +17,9 @@ export default function () {
     ["Comment se passe une première visite ?",
       "La première visite sert a faire connaissance et a dresser un bilan de votre bouche, souvent avec un examen et une imagerie si nécessaire. Nous prenons le temps de vous expliquer la situation et les options, sans aucun jugement."],
     ["Quels sont les horaires d'ouverture ?",
-      "Nous sommes ouverts du lundi au samedi, de 10h a 18h30."],
+      "Nous sommes ouverts du lundi au samedi, de 10h a 19h."],
     ["Comment prendre rendez-vous ?",
-      "Par telephone, au " + PHONE + ", du lundi au samedi de 10h a 18h30. L'appel nous permet de vous orienter vers le praticien adapté à votre besoin."],
+      "Par telephone, au " + PHONE + ", du lundi au samedi de 10h a 19h. L'appel nous permet de vous orienter vers le praticien adapté à votre besoin."],
     ["Vos dentistes sont-ils conventionnés ?",
       "Une grande partie de notre équipe est conventionnee et applique les tarifs officiels INAMI. Nous vous precisons toujours, avant un soin, ce qui releve du conventionnement. Pour en savoir plus, voir notre page dentiste conventionne à Anderlecht."],
     ["Le cabinet est-il accessible aux personnes a mobilite réduite ?",
@@ -33,8 +33,8 @@ export default function () {
       eyebrow: "Le cabinet",
       title: "Votre cabinet dentaire à Anderlecht, au centre Cora",
       lead: "Au cœur du centre commercial Cora à Anderlecht, White & Care vous accueille dans un espace lumineux et pensé pour votre confort : une grande équipe de dentistes, un plateau technique moderne et un accueil multilingue.",
-      image: "/assets/photos/cabinet-hero.jpeg",
-      alt: "Cabinet dentaire White & Care au centre Cora à Anderlecht",
+      image: "/assets/photos/clinique-dentaire-white-and-care-anderlecht.webp",
+      alt: "Devanture et accueil du cabinet dentaire White & Care au centre Cora à Anderlecht",
     }),
 
     statsStrip([
@@ -74,9 +74,9 @@ export default function () {
         ["smile", "Une approche pédagogique : on vous explique le pourquoi avant le comment"],
         ["heart-care", "Un accueil sans jugement, particulièrement attentif aux patients anxieux"],
       ],
-      image: "/assets/photos/cabinet-1.avif",
+      image: "/assets/photos/salle-de-soins-dentaire-anderlecht.webp",
       imageSide: "right",
-      alt: "Équipe de dentistes White & Care à Anderlecht",
+      alt: "Salle de soins moderne du cabinet White & Care à Anderlecht",
     }),
 
     // H2 · Des soins complets, sous un même toit (HUB : liens vers les 7 pages soins)
@@ -115,6 +115,19 @@ export default function () {
       ],
     }),
 
+    // H2 · Le cabinet en images (galerie vraies photos · E-E-A-T)
+    `<section class="wc-section-lg"><div class="wc-container">${sectionHead({
+      eyebrow: "En images",
+      title: "Le cabinet en images",
+      intro: "Imagerie 3D, microscopie, salles de soins lumineuses : un aperçu réel de notre plateau technique et de nos espaces, au centre Cora à Anderlecht.",
+      center: true,
+    })}<div class="wc-cards-2" style="margin-top:28px">`
+      + tile("/assets/photos/radiographie-panoramique-3d-dentaire-anderlecht.webp", { alt: "Radiographie panoramique 3D au cabinet dentaire White & Care à Anderlecht", ratio: "16/10", radius: 16 })
+      + tile("/assets/photos/microscope-endodontie-dentaire-anderlecht.webp", { alt: "Microscope pour les soins d'endodontie au cabinet White & Care à Anderlecht", ratio: "16/10", radius: 16 })
+      + tile("/assets/photos/cabinet-dentaire-anderlecht-couloir-salles.webp", { alt: "Couloir et salles de soins du cabinet White & Care à Anderlecht", ratio: "16/10", radius: 16 })
+      + tile("/assets/photos/decoration-cabinet-dentaire-anderlecht.webp", { alt: "Décoration colorée du cabinet dentaire White & Care à Anderlecht", ratio: "16/10", radius: 16 })
+      + `</div></div></section>`,
+
     // H2 · Venir au cabinet : acces et parking gratuit (voiture + STIB)
     zigzag({
       id: "acces",
@@ -129,9 +142,9 @@ export default function () {
         ["pin", "En transports : bus et tram STIB desservant le centre Cora"],
         ["heart-care", "Accès de plain-pied et ascenseurs du centre, pour une venue facilitée"],
       ],
-      image: "/assets/photos/clinique-1.avif",
+      image: "/assets/photos/cabinet-dentaire-white-and-care-anderlecht-cora.webp",
       imageSide: "left",
-      alt: "Acces au cabinet dentaire White & Care, centre Cora à Anderlecht",
+      alt: "Entrée du cabinet White & Care dans la galerie du centre Cora à Anderlecht",
       cta: btn("Demander l'itinéraire : " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true }),
     }),
 
@@ -140,11 +153,11 @@ export default function () {
       eyebrow: "Horaires",
       title: "Horaires d'ouverture",
       paras: [
-        "Nous sommes ouverts du lundi au samedi, de 10h à 18h30. Ces horaires larges, six jours sur sept, vous permettent de trouver un créneau qui s'adapté à votre travail et à votre vie de famille, y compris le samedi.",
+        "Nous sommes ouverts du lundi au samedi, de 10h à 19h. Ces horaires larges, six jours sur sept, vous permettent de trouver un créneau qui s'adapté à votre travail et à votre vie de famille, y compris le samedi.",
         "Pour prendre rendez-vous ou connaître les disponibilités, un seul réflexe : appelez-nous au " + PHONE + ". Notre accueil vous oriente vers le praticien adapté à votre demande.",
       ],
       checks: [
-        "Ouvert du lundi au samedi, de 10h à 18h30",
+        "Ouvert du lundi au samedi, de 10h à 19h",
         "Rendez-vous le samedi pour s'adapter à votre semaine",
         "Prise de rendez-vous par téléphone, accueil en français, anglais ou arabe",
       ],

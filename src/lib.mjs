@@ -86,7 +86,14 @@ export function reviewCard({ initial, name, when, text }) {
 export function tile(src, { label, icon = "smile", alt = "White & Care", radius = 14, ratio } = {}) {
   const r = `border-radius:${radius}px`;
   const ar = ratio ? `aspect-ratio:${ratio};` : "height:100%;";
-  if (src) return `<div class="wc-tile" style="${r};${ar}"><img src="${src}" alt="${alt}" loading="lazy" decoding="async"></div>`;
+  // Explicit intrinsic dimensions (derived from the ratio) reserve layout space
+  // and prevent CLS; CSS still sizes the image to 100% of the tile.
+  let dim = "";
+  if (ratio && /^\d+\s*\/\s*\d+$/.test(ratio)) {
+    const [w, h] = ratio.split("/").map((n) => parseInt(n, 10) * 80);
+    dim = ` width="${w}" height="${h}"`;
+  }
+  if (src) return `<div class="wc-tile" style="${r};${ar}"><img src="${src}" alt="${alt}"${dim} loading="lazy" decoding="async"></div>`;
   return `<div class="wc-tile wc-tile-ph" style="${r};${ar}"><div>${dentalIcon(icon, 30)}${label ? `<div class="lbl">${label}</div>` : ""}</div></div>`;
 }
 
@@ -169,6 +176,19 @@ export function reviewsSection() {
     + `<div class="wc-reviews-score"><span class="wc-stat">4,6</span><div>${stars(5)}<div class="meta">${googleG(15)} 191 avis Google</div></div></div></div>`
     + `<ul class="wc-reviews-grid">${REVIEWS.map(reviewCard).join("")}</ul>`
     + `</div></div></section>`;
+}
+
+// Comparison table · the format AI answer engines extract most reliably for
+// "X vs Y" queries. `headers` = column labels (first = row-criteria label),
+// `rows` = [criteria, col1, col2, …]. Scrollable on mobile.
+export function compareTable({ eyebrow: eb, title, intro, headers, rows, note, center = true }) {
+  const thead = `<thead><tr>${headers.map((h, i) => `<th style="text-align:${i === 0 ? "left" : "left"};padding:14px 16px;font-weight:700;color:var(--wc-ink);border-bottom:2px solid rgba(100,46,255,.18)">${h}</th>`).join("")}</tr></thead>`;
+  const tbody = `<tbody>${rows.map((r) => `<tr>${r.map((cell, i) => `<${i === 0 ? "th scope=\"row\"" : "td"} style="padding:13px 16px;border-bottom:1px solid rgba(16,24,40,.08);font-weight:${i === 0 ? "600" : "400"};color:var(--wc-body);vertical-align:top">${cell}</${i === 0 ? "th" : "td"}>`).join("")}</tr>`).join("")}</tbody>`;
+  const table = `<div class="wc-glass-card wc-table-wrap" style="margin-top:8px;overflow-x:auto"><table class="wc-table" style="width:100%;border-collapse:collapse;font-size:15px;min-width:520px">${thead}${tbody}</table></div>`;
+  return `<section class="wc-section-lg"><div class="wc-container">${sectionHead({ eyebrow: eb, title, intro, center })}`
+    + `<div style="margin-top:24px">${table}</div>`
+    + (note ? `<p style="margin-top:18px;font-size:15px;line-height:1.65;color:var(--wc-body)">${note}</p>` : "")
+    + `</div></section>`;
 }
 
 export function statsStrip(stats) {

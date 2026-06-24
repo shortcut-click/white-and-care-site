@@ -1,6 +1,6 @@
 import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
-import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
+import { SITE, schema, faqSchema, howToSchema, LANGUE } from "../seo-helpers.mjs";
 
 export default function () {
   const url = SITE + "/urgence-dentaire-anderlecht";
@@ -9,7 +9,7 @@ export default function () {
     ["Que faire en cas d'urgence dentaire à Anderlecht ?",
       "Appelez White & Care au +32 2 493 53 53. Nous gardons chaque jour, du lundi au samedi, des créneaux réservés aux urgences et nous vous recevons en priorité, le jour même dans la plupart des cas. Décrivez votre situation par téléphone : nous vous orientons immédiatement."],
     ["Avez-vous un dentiste de garde à Bruxelles ?",
-      "En semaine, du lundi au samedi de 10h à 18h30, vous n'avez pas besoin d'un service de garde : appelez directement le cabinet, nous avons des créneaux d'urgence quotidiens. Le dimanche et les jours fériés, une garde dentaire régionale est organisée à Bruxelles ; consultez le service officiel de garde (gardedentaire.be) et appelez avant de vous déplacer."],
+      "En semaine, du lundi au samedi de 10h à 19h, vous n'avez pas besoin d'un service de garde : appelez directement le cabinet, nous avons des créneaux d'urgence quotidiens. Le dimanche et les jours fériés, une garde dentaire régionale est organisée à Bruxelles ; consultez le service officiel de garde (gardedentaire.be) et appelez avant de vous déplacer."],
     ["J'ai une rage de dent insupportable, surtout la nuit. Que faire ?",
       "Une douleur intense qui empire la nuit signale souvent une atteinte du nerf. En attendant, un antidouleur adapté peut soulager, mais seul un traitement règle le problème. Appelez-nous dès l'ouverture ; en cas de douleur ingérable la nuit ou le dimanche, orientez-vous vers la garde régionale ou, si l'état général se dégrade, le 112."],
     ["Que faire si une dent est tombée (expulsée) après un choc ?",
@@ -28,6 +28,12 @@ export default function () {
       "Dans la plupart des cas, le jour même pendant nos heures d'ouverture. Plus vous appelez tôt dans la journée, plus il est facile de vous trouver un créneau."],
   ];
 
+  const gardeSteps = [
+    { title: "En semaine : appelez le cabinet", body: "Du lundi au samedi, de 10h à 19h, inutile de chercher une garde : appelez White & Care au " + PHONE + ". Nous avons des créneaux d'urgence chaque jour d'ouverture." },
+    { title: "Week-end et jours fériés : la garde régionale", body: "Le dimanche et les jours fériés, lorsque les cabinets sont fermés, une garde dentaire est organisée à Bruxelles. Renseignez-vous via le service officiel de garde (gardedentaire.be) et appelez toujours avant de vous déplacer." },
+    { title: "Urgence vitale : le 112", body: "Traumatisme grave du visage, difficulté à respirer ou à avaler, gonflement qui s'étend vite ou saignement impossible à contrôler : c'est une urgence médicale, appelez le 112 ou rendez-vous aux urgences hospitalières." },
+  ];
+
   const body = [
     pageHeroSplit({
       eyebrow: "Urgence dentaire",
@@ -44,13 +50,13 @@ export default function () {
       + `<span class="blob" style="left:-50px;bottom:-50px;width:190px;height:190px"></span>`
       + `<div class="wc-cta-inner" style="flex-direction:column;align-items:flex-start;gap:14px">`
       + `<p style="font-size:22px;font-weight:700;margin:0">${dentalIcon("alert-tooth", 24)}Une urgence ? Appelez le ${PHONE}</p>`
-      + `<p style="margin:0;opacity:.92">Du lundi au samedi, de 10h à 18h30. On vous reçoit en priorité. Créneaux d'urgence chaque jour, parking gratuit au Cora, accueil multilingue.</p>`
+      + `<p style="margin:0;opacity:.92">Du lundi au samedi, de 10h à 19h. On vous reçoit en priorité. Créneaux d'urgence chaque jour, parking gratuit au Cora, accueil multilingue.</p>`
       + `<div>${btn("Appeler maintenant : " + PHONE, { variant: "white", iconLeft: ui.phone(15), book: true })}</div>`
       + `</div></div></div></section>`,
 
     statsStrip([
       ["Jour même", "créneaux d'urgence réservés"],
-      ["6 j/7", "lun-sam, 10h à 18h30"],
+      ["6 j/7", "lun-sam, 10h à 19h"],
       ["12", "fauteuils, équipe pluridisciplinaire"],
       ["4,6/5", "sur 191 avis Google"],
     ]),
@@ -134,11 +140,7 @@ export default function () {
       title: "Comment vous orienter selon le moment",
       intro: "Beaucoup cherchent un dentiste de garde alors qu'un cabinet ouvert répond souvent plus vite. Voici comment vous orienter.",
       cols: 3,
-      steps: [
-        { title: "En semaine : appelez le cabinet", body: "Du lundi au samedi, de 10h à 18h30, inutile de chercher une garde : appelez White & Care au " + PHONE + ". Nous avons des créneaux d'urgence chaque jour d'ouverture." },
-        { title: "Week-end et jours fériés : la garde régionale", body: "Le dimanche et les jours fériés, lorsque les cabinets sont fermés, une garde dentaire est organisée à Bruxelles. Renseignez-vous via le service officiel de garde (gardedentaire.be) et appelez toujours avant de vous déplacer." },
-        { title: "Urgence vitale : le 112", body: "Traumatisme grave du visage, difficulté à respirer ou à avaler, gonflement qui s'étend vite ou saignement impossible à contrôler : c'est une urgence médicale, appelez le 112 ou rendez-vous aux urgences hospitalières." },
-      ],
+      steps: gardeSteps,
     }),
 
     // H2 · Urgence dentaire sans rendez-vous + prise en charge le jour même (zigzag)
@@ -165,12 +167,12 @@ export default function () {
       eyebrow: "Horaires, accès et tarifs",
       title: "Horaires, accès et coût d'une urgence dentaire",
       paras: [
-        "White & Care vous reçoit du lundi au samedi, de 10h à 18h30, au centre commercial Cora à Anderlecht (1070 Bruxelles). Parking gratuit, accès facile en voiture comme en transports, et un cabinet facilement accessible depuis Molenbeek, Forest et Saint-Gilles. Pour situer le cabinet, voir " + link("notre cabinet à Anderlecht", "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht") + ".",
+        "White & Care vous reçoit du lundi au samedi, de 10h à 19h, au centre commercial Cora à Anderlecht (1070 Bruxelles). Parking gratuit, accès facile en voiture comme en transports, et un cabinet facilement accessible depuis Molenbeek, Forest et Saint-Gilles. Pour situer le cabinet, voir " + link("notre cabinet à Anderlecht", "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht") + ".",
         "Le coût dépend du soin réalisé (consultation, soin de la douleur, traitement de racine, etc.). White & Care compte de nombreux " + link("dentistes conventionnés INAMI", "/dentiste-conventionne") + ", ce qui permet de bénéficier des tarifs officiels et d'un remboursement par votre mutuelle pour les soins concernés. Pour connaître le tarif précis de votre situation, le mieux est de nous appeler : nous vous renseignons en toute transparence.",
       ],
       checks: [
         "Centre commercial Cora, 1070 Anderlecht, parking gratuit",
-        "Ouvert du lundi au samedi, de 10h à 18h30",
+        "Ouvert du lundi au samedi, de 10h à 19h",
         "De nombreux praticiens conventionnés : tarifs officiels et remboursement mutuelle",
       ],
       cta: btn("Appeler le cabinet : " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true }),
@@ -186,23 +188,25 @@ export default function () {
 
     reviewsSection(),
 
-    ctaBanner("Ne restez pas avec votre douleur. White & Care vous reçoit en priorité, du lundi au samedi de 10h à 18h30. Appelez le " + PHONE + ".", { ctaLabel: "Appeler maintenant" }),
+    ctaBanner("Ne restez pas avec votre douleur. White & Care vous reçoit en priorité, du lundi au samedi de 10h à 19h. Appelez le " + PHONE + ".", { ctaLabel: "Appeler maintenant" }),
   ].join("\n");
 
   return {
     path: "urgence-dentaire-anderlecht/index.html",
     meta: {
       title: "Urgence dentaire Anderlecht | Pris en charge le jour même",
-      description: "Urgence dentaire à Anderlecht : rage de dent, abcès, dent cassée traités en priorité. Lun-sam 10h-18h30, créneaux d'urgence. Appelez le +32 2 493 53 53.",
+      description: "Urgence dentaire à Anderlecht : rage de dent, abcès, dent cassée traités en priorité. Lun-sam 10h-19h, créneaux d'urgence. Appelez le +32 2 493 53 53.",
       canonical: url,
       breadcrumb: [["Accueil", "/"], ["Urgence dentaire", "/urgence-dentaire-anderlecht"]],
       schema: [
         schema({
           url,
+          type: "MedicalWebPage",
           name: "White & Care · Urgence dentaire",
-          description: "Urgence dentaire à Anderlecht (centre Cora, 1070) : rage de dent, abcès, dent cassée ou expulsée prises en charge en priorité, le jour même. Ouvert du lundi au samedi de 10h à 18h30.",
+          description: "Urgence dentaire à Anderlecht (centre Cora, 1070) : rage de dent, abcès, dent cassée ou expulsée prises en charge en priorité, le jour même. Ouvert du lundi au samedi de 10h à 19h.",
         }),
         faqSchema(faq),
+        howToSchema({ name: "Urgence dentaire : comment vous orienter selon le moment", description: "Que faire en cas d'urgence dentaire à Anderlecht selon le jour et la gravité.", steps: gardeSteps }),
       ],
     },
     body,

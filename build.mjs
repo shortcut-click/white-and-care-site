@@ -1,10 +1,10 @@
 // White & Care — static site generator.
 // Usage: node build.mjs   →   outputs ./dist (deploy this folder).
-import { mkdir, writeFile, rm, cp } from "node:fs/promises";
+import { mkdir, writeFile, rm, cp, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
-import { layout, SITE } from "./src/partials.mjs";
+import { layout, SITE, UPDATED_ISO } from "./src/partials.mjs";
 import { allPages } from "./src/pages.mjs";
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
@@ -24,6 +24,38 @@ function applyBase(html) {
     .replace('content="index, follow, max-image-preview:large"', 'content="noindex, nofollow"');
 }
 
+// Preload the LCP hero image: find the (already base-prefixed) high-priority
+// <img> and inject a matching <link rel="preload"> before the first stylesheet.
+function injectHeroPreload(html) {
+  const img = html.match(/<img[^>]*fetchpriority="high"[^>]*>/);
+  if (!img) return html;
+  const src = img[0].match(/src="([^"]+)"/);
+  if (!src) return html;
+  const link = `<link rel="preload" as="image" href="${src[1]}" fetchpriority="high">\n`;
+  return html.replace('<link rel="stylesheet"', link + '<link rel="stylesheet"');
+}
+
+// Conservative minifiers (no deps). CSS: keep single spaces so calc() stays
+// valid; only strip comments, newlines and indentation. JS: line-based — drop
+// indentation, blank lines and full-line // comments (newlines kept = ASI-safe).
+function minifyCss(css) {
+  return css
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .replace(/\s*\n\s*/g, " ")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s*([{};])\s*/g, "$1")
+    .replace(/;}/g, "}")
+    .trim();
+}
+function minifyJs(js) {
+  return js
+    .replace(/\/\*[\s\S]*?\*\//g, "")
+    .split("\n")
+    .map((l) => l.replace(/^\s+/, ""))
+    .filter((l) => l && !l.startsWith("//"))
+    .join("\n");
+}
+
 async function build() {
   // clean (best-effort: on Windows the folder may be locked by an open
   // Explorer window or a running preview server — in that case we keep the
@@ -34,27 +66,47 @@ async function build() {
   }
   await mkdir(DIST, { recursive: true });
 
-  // copy assets
+  // copy assets, then minify the two text assets in place
   await cp(join(ROOT, "assets"), join(DIST, "assets"), { recursive: true });
+  for (const [file, fn] of [["assets/styles.css", minifyCss], ["assets/main.js", minifyJs]]) {
+    const raw = await readFile(join(ROOT, file), "utf8");
+    await writeFile(join(DIST, file), fn(raw), "utf8");
+  }
 
   // render pages
   const pages = allPages();
   for (const p of pages) {
     const out = join(DIST, p.path);
     await mkdir(dirname(out), { recursive: true });
-    await writeFile(out, applyBase(layout(p.meta, p.body)), "utf8");
+    await writeFile(out, injectHeroPreload(applyBase(layout(p.meta, p.body))), "utf8");
     console.log("✓", p.path);
   }
 
-  // sitemap.xml
-  const urls = pages.map((p) => p.meta.canonical);
+  // sitemap.xml — indexable pages only (skip noindex / canonical-less pages like 404)
+  const urls = pages.filter((p) => p.meta.canonical && !p.meta.noindex).map((p) => p.meta.canonical);
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n`
-    + urls.map((u) => `  <url><loc>${u}</loc><changefreq>monthly</changefreq><priority>${u === SITE + "/" ? "1.0" : "0.8"}</priority></url>`).join("\n")
+    + urls.map((u) => `  <url><loc>${u}</loc><lastmod>${UPDATED_ISO}</lastmod><changefreq>monthly</changefreq><priority>${u === SITE + "/" ? "1.0" : "0.8"}</priority></url>`).join("\n")
     + `\n</urlset>\n`;
   await writeFile(join(DIST, "sitemap.xml"), sitemap, "utf8");
 
   // robots.txt
   await writeFile(join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`, "utf8");
+
+  // site.webmanifest (PWA install metadata; SVG icon — paths base-aware for preview)
+  const manifest = {
+    name: "White & Care · Cabinet dentaire à Anderlecht",
+    short_name: "White & Care",
+    lang: "fr",
+    start_url: BASE + "/",
+    scope: BASE + "/",
+    display: "standalone",
+    background_color: "#ffffff",
+    theme_color: "#642eff",
+    icons: [
+      { src: BASE + "/assets/brand/favicon-wc.svg", type: "image/svg+xml", sizes: "any", purpose: "any maskable" },
+    ],
+  };
+  await writeFile(join(DIST, "site.webmanifest"), JSON.stringify(manifest, null, 2), "utf8");
 
   console.log(`\nBuilt ${pages.length} pages → ${resolve(DIST)}`);
 }

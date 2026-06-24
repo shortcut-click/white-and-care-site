@@ -16,7 +16,7 @@ export function heroHome() {
         ${trustChip("euro", "Conventionné", "Tarifs officiels INAMI")}
         ${trustChip("smile", "Multilingue", "FR · NL · EN · ES · AR")}
         ${trustChip("shield-tooth", "Cora Anderlecht", "Parking gratuit")}
-        ${trustChip("calendar-check", "Lun – Sam", "10h – 18h30")}
+        ${trustChip("calendar-check", "Lun – Sam", "10h – 19h")}
       </div>
     </div>
     <figure class="wc-hero-figure">

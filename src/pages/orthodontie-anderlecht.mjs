@@ -1,6 +1,6 @@
-import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices } from "../lib.mjs";
+import { btn, link, ui, eyebrow, chip, dentalIcon, glassBlock, zigzag, featureGrid, stepGrid, ctaBanner, faqSection, reviewsSection, statsStrip, sectionHead, langueSection, tile, PHONE, relatedServices, compareTable } from "../lib.mjs";
 import { heroHome, pageHeroSplit, pageHeroGradient } from "../heroes.mjs";
-import { SITE, schema, faqSchema, LANGUE } from "../seo-helpers.mjs";
+import { SITE, schema, faqSchema, howToSchema, LANGUE } from "../seo-helpers.mjs";
 
 export default function () {
   const url = SITE + "/orthodontie-anderlecht";
@@ -30,13 +30,34 @@ export default function () {
       "À maintenir durablement le résultat. Une fois l'appareil retiré, un fil discret colle derriere les dents ou une gouttière de nuit empeche les dents de rebouger. C'est une étape indispensable."],
   ];
 
+  const parcoursSteps = [
+    { title: "Consultation et diagnostic", body: "Examen clinique, photos et radiographies si nécessaire, et empreintes numériques grâce à notre scanner 3D, fini la pâte désagréable. Nous discutons de vos attentes et répondons à vos questions." },
+    { title: "Plan de traitement et devis", body: "Un plan personnalisé : type d'appareil recommandé, durée estimée et devis précis. Pour les aligneurs, vous visualisez une simulation 3D du résultat avant même de commencer." },
+    { title: "Pose de l'appareil", body: "Installation de votre appareil avec toutes les explications pour l'entretien et l'utilisation au quotidien." },
+    { title: "Suivi et contention", body: "Des visites de contrôle régulières, en général une fois par mois pour les bagues et toutes les 8 à 10 semaines pour les aligneurs. Une fois l'alignement obtenu, la contention (fil discret ou gouttière de nuit) garantit un résultat durable." },
+  ];
+
+  // Avant / après · paires intra-orales (cas réels, à titre indicatif)
+  const baCase = (n, legende) => `<div class="wc-glass-card" style="padding:16px">`
+    + `<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">`
+    + `<figure style="margin:0"><div style="position:relative;overflow:hidden;border-radius:12px;aspect-ratio:4/3"><img src="/assets/photos/orthodontie-anderlecht-avant-${n}.webp" alt="Avant traitement orthodontique à Anderlecht : ${legende}" width="800" height="600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"><span style="position:absolute;top:8px;left:8px;background:rgba(16,24,40,.72);color:#fff;font-size:12px;font-weight:600;padding:3px 11px;border-radius:999px">Avant</span></div></figure>`
+    + `<figure style="margin:0"><div style="position:relative;overflow:hidden;border-radius:12px;aspect-ratio:4/3"><img src="/assets/photos/orthodontie-anderlecht-apres-${n}.webp" alt="Après traitement orthodontique à Anderlecht : ${legende}" width="800" height="600" loading="lazy" decoding="async" style="width:100%;height:100%;object-fit:cover"><span style="position:absolute;top:8px;left:8px;background:var(--wc-violet);color:#fff;font-size:12px;font-weight:600;padding:3px 11px;border-radius:999px">Après</span></div></figure>`
+    + `</div></div>`;
+
+  const avantApres = `<section class="wc-section-lg"><div class="wc-container">${sectionHead({
+    eyebrow: "Résultats",
+    title: "Avant / après : des sourires réalignés",
+    intro: "Des exemples de corrections obtenues au cabinet d'Anderlecht. Chaque situation est unique : ces images sont données à titre indicatif et ne constituent pas une garantie de résultat.",
+    center: true,
+  })}<div class="wc-cards-2" style="margin-top:28px">${baCase("1", "dents encombrées réalignées")}${baCase("2", "encombrement corrigé et contention posée")}</div></div></section>`;
+
   const body = [
     pageHeroSplit({
       eyebrow: "Orthodontie",
       title: "Orthodontiste à Anderlecht",
-      lead: "Bagues et aligneurs pour enfants, adolescents et adultes. Des traitements discrets, fiables et adaptés à chaque âge, ici même à Anderlecht. Ouvert du lundi au samedi, de 10h à 18h30.",
-      image: "/assets/photos/img-17.avif",
-      alt: "Patiente souriante après un traitement d'orthodontie chez White & Care à Anderlecht",
+      lead: "Bagues et aligneurs pour enfants, adolescents et adultes. Des traitements discrets, fiables et adaptés à chaque âge, ici même à Anderlecht. Ouvert du lundi au samedi, de 10h à 19h.",
+      image: "/assets/photos/orthodontie-anderlecht-hero.webp",
+      alt: "Jeune patiente souriante au cabinet d'orthodontie White & Care à Anderlecht",
       secondary: { label: "Voir Invisalign", href: "/invisalign" },
     }),
 
@@ -70,6 +91,21 @@ export default function () {
       ],
     }),
 
+    compareTable({
+      eyebrow: "Tableau comparatif",
+      title: "Quel appareil dentaire choisir : le comparatif",
+      intro: "Les quatre grandes familles d'appareils, comparées sur la discrétion, le confort et le budget. Le bon choix dépend de votre cas et de vos priorités.",
+      headers: ["Critère", "Aligneurs (Invisalign)", "Bagues métalliques", "Bagues céramiques", "Lingual"],
+      rows: [
+        ["Discrétion", "Quasi invisibles", "Visibles", "Discrètes (couleur dent)", "Invisibles (face interne)"],
+        ["Amovible", "Oui", "Non", "Non", "Non"],
+        ["Confort", "Élevé, sans frottement", "Standard", "Standard", "Adaptation de la langue"],
+        ["Budget", "Élevé", "Le plus accessible", "Intermédiaire", "Le plus élevé"],
+        ["Cas traités", "Léger à modéré", "Tous, y compris complexes", "La plupart des cas", "La plupart des cas"],
+      ],
+      note: "À titre indicatif, un traitement par aligneurs se situe le plus souvent entre 2 000 et 7 000 EUR selon les cas. Nous remettons un devis détaillé et proposons des paiements échelonnés. Découvrez aussi notre page " + link("Invisalign", "/invisalign") + ".",
+    }),
+
     zigzag({
       eyebrow: "Enfants & adolescents",
       title: "Orthodontie pour enfants et adolescents",
@@ -82,9 +118,9 @@ export default function () {
         ["heart-care", "Orthodontie interceptive pendant la croissance"],
         ["clipboard", "Devis détaillé remis avant tout traitement"],
       ],
-      image: "/assets/photos/img-17.avif",
+      image: "/assets/photos/orthodontie-enfant-anderlecht.webp",
       imageSide: "right",
-      alt: "Adolescent en consultation d'orthodontie à Anderlecht",
+      alt: "Enfant souriant, orthodontie interceptive pour enfants à Anderlecht",
     }),
 
     zigzag({
@@ -99,9 +135,9 @@ export default function () {
         ["shield-tooth", "Orthodontie linguale, invisible de l'extérieur"],
         ["heart-care", "Un brossage facilité et une occlusion plus saine"],
       ],
-      image: "/assets/photos/invisalign.avif",
+      image: "/assets/photos/orthodontie-adulte-anderlecht.webp",
       imageSide: "left",
-      alt: "Adulte portant des aligneurs transparents discrets",
+      alt: "Adulte souriant après un traitement d'orthodontie discret à Anderlecht",
       cta: btn("Appelez le " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true }),
     }),
 
@@ -109,13 +145,10 @@ export default function () {
       eyebrow: "Votre parcours",
       title: "Comment se déroule votre traitement ?",
       cols: 4,
-      steps: [
-        { title: "Consultation et diagnostic", body: "Examen clinique, photos et radiographies si nécessaire, et empreintes numériques grâce à notre scanner 3D, fini la pâte désagréable. Nous discutons de vos attentes et répondons à vos questions." },
-        { title: "Plan de traitement et devis", body: "Un plan personnalisé : type d'appareil recommandé, durée estimée et devis précis. Pour les aligneurs, vous visualisez une simulation 3D du résultat avant même de commencer." },
-        { title: "Pose de l'appareil", body: "Installation de votre appareil avec toutes les explications pour l'entretien et l'utilisation au quotidien." },
-        { title: "Suivi et contention", body: "Des visites de contrôle régulières, en général une fois par mois pour les bagues et toutes les 8 à 10 semaines pour les aligneurs. Une fois l'alignement obtenu, la contention (fil discret ou gouttière de nuit) garantit un résultat durable." },
-      ],
+      steps: parcoursSteps,
     }),
+
+    avantApres,
 
     glassBlock({
       eyebrow: "Durée",
@@ -153,9 +186,9 @@ export default function () {
         ["smile", "Simulation visuelle de votre futur sourire"],
         ["heart-care", "Un parcours de traitement plus confortable"],
       ],
-      image: "/assets/photos/invisalign.avif",
+      image: "/assets/photos/radiographie-3d-anderlecht-portrait.webp",
       imageSide: "right",
-      alt: "Scanner 3D intra-oral utilisé au cabinet White & Care",
+      alt: "Imagerie 3D et scanner utilisés au cabinet White & Care à Anderlecht",
     }),
 
     featureGrid({
@@ -201,8 +234,9 @@ export default function () {
       breadcrumb: [["Accueil", "/"], ["Orthodontie", "/orthodontie-anderlecht"]],
       specialist: true,
       schema: [
-        schema({ url, name: "White & Care · Orthodontie", description: "Orthodontiste à Anderlecht (Bruxelles) : bagues métalliques, céramiques, orthodontie linguale et aligneurs transparents pour enfants, adolescents et adultes." }),
+        schema({ url, type: "MedicalWebPage", name: "White & Care · Orthodontie", description: "Orthodontiste à Anderlecht (Bruxelles) : bagues métalliques, céramiques, orthodontie linguale et aligneurs transparents pour enfants, adolescents et adultes." }),
         faqSchema(faq),
+        howToSchema({ name: "Comment se déroule un traitement orthodontique", description: "Les étapes d'un traitement d'orthodontie chez White & Care, de la consultation à la contention.", steps: parcoursSteps }),
       ],
     },
     body,
