@@ -24,14 +24,35 @@ function applyBase(html) {
     .replace('content="index, follow, max-image-preview:large"', 'content="noindex, nofollow"');
 }
 
+// Responsive images: add srcset (mobile variant + original) + sizes to every
+// <img> referencing a photo that has a generated variant in the manifest.
+function addSrcset(html, resp) {
+  return html.replace(/<img\b[^>]*\bsrc="([^"]*\/assets\/photos\/([^"/?]+))"[^>]*>/g, (tag, fullSrc, name) => {
+    if (/\bsrcset=/.test(tag)) return tag;
+    const info = resp[name];
+    if (!info || !info.v) return tag;
+    const variantSrc = fullSrc.slice(0, fullSrc.length - name.length) + info.v;
+    const srcset = `${variantSrc} ${info.vw}w, ${fullSrc} ${info.w}w`;
+    const sizes = "(max-width: 700px) 95vw, 620px";
+    return tag.replace(`src="${fullSrc}"`, `src="${fullSrc}" srcset="${srcset}" sizes="${sizes}"`);
+  });
+}
+
 // Preload the LCP hero image: find the (already base-prefixed) high-priority
 // <img> and inject a matching <link rel="preload"> before the first stylesheet.
+// Uses imagesrcset/imagesizes so the preload matches the candidate the browser
+// actually picks (mobile fetches the small variant, not the full-size original).
 function injectHeroPreload(html) {
   const img = html.match(/<img[^>]*fetchpriority="high"[^>]*>/);
   if (!img) return html;
-  const src = img[0].match(/src="([^"]+)"/);
+  const tag = img[0];
+  const src = tag.match(/\bsrc="([^"]+)"/);
   if (!src) return html;
-  const link = `<link rel="preload" as="image" href="${src[1]}" fetchpriority="high">\n`;
+  const ss = tag.match(/\bsrcset="([^"]+)"/);
+  const sz = tag.match(/\bsizes="([^"]+)"/);
+  const link = ss
+    ? `<link rel="preload" as="image" imagesrcset="${ss[1]}"${sz ? ` imagesizes="${sz[1]}"` : ""} fetchpriority="high">\n`
+    : `<link rel="preload" as="image" href="${src[1]}" fetchpriority="high">\n`;
   return html.replace('<link rel="stylesheet"', link + '<link rel="stylesheet"');
 }
 
@@ -73,12 +94,20 @@ async function build() {
     await writeFile(join(DIST, file), fn(raw), "utf8");
   }
 
+  // responsive-image manifest (basename → {w,h,v,vw}); empty if not generated yet
+  let resp = {};
+  try { resp = JSON.parse(await readFile(join(ROOT, "assets/photos/_responsive.json"), "utf8")); }
+  catch { console.warn("! _responsive.json absent — srcset non injecté"); }
+
   // render pages
   const pages = allPages();
   for (const p of pages) {
     const out = join(DIST, p.path);
     await mkdir(dirname(out), { recursive: true });
-    await writeFile(out, injectHeroPreload(applyBase(layout(p.meta, p.body))), "utf8");
+    let html = applyBase(layout(p.meta, p.body));
+    html = addSrcset(html, resp);
+    html = injectHeroPreload(html);
+    await writeFile(out, html, "utf8");
     console.log("✓", p.path);
   }
 

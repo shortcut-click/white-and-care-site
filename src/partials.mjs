@@ -129,9 +129,7 @@ ${canonical ? `<link rel="canonical" href="${url}">` : ""}
 <meta name="twitter:title" content="${title}">
 <meta name="twitter:description" content="${description}">
 <meta name="twitter:image" content="${og}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<link rel="preload" href="/assets/fonts/poppins-700-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/styles.css">
 ${schema ? `<script type="application/ld+json">${JSON.stringify(schema)}</script>` : ""}
 ${breadcrumb && breadcrumb.length ? `<script type="application/ld+json">${JSON.stringify(breadcrumbLd(breadcrumb))}</script>` : ""}
