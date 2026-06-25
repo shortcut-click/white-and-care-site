@@ -2,6 +2,7 @@
 // Usage: node build.mjs   →   outputs ./dist (deploy this folder).
 import { mkdir, writeFile, rm, cp, readFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { layout, SITE, UPDATED_ISO } from "./src/partials.mjs";
@@ -56,6 +57,15 @@ function injectHeroPreload(html) {
   return html.replace('<link rel="stylesheet"', link + '<link rel="stylesheet"');
 }
 
+// Append a content-version query to the styles.css / main.js references so the
+// host can cache them immutable while a content change still busts the cache.
+// Matches the filename suffix, so it works with or without a WC_BASE prefix.
+function applyAssetHashes(html, hash) {
+  return html
+    .replace(/\/assets\/styles\.css(?=")/g, `/assets/styles.css?v=${hash.css}`)
+    .replace(/\/assets\/main\.js(?=")/g, `/assets/main.js?v=${hash.js}`);
+}
+
 // Conservative minifiers (no deps). CSS: keep single spaces so calc() stays
 // valid; only strip comments, newlines and indentation. JS: line-based — drop
 // indentation, blank lines and full-line // comments (newlines kept = ASI-safe).
@@ -87,11 +97,15 @@ async function build() {
   }
   await mkdir(DIST, { recursive: true });
 
-  // copy assets, then minify the two text assets in place
+  // copy assets, then minify the two text assets in place; keep a short content
+  // hash of each so HTML can reference them as ?v=<hash> (lets the host serve
+  // them immutable for a year while a content edit auto-busts the cache).
   await cp(join(ROOT, "assets"), join(DIST, "assets"), { recursive: true });
-  for (const [file, fn] of [["assets/styles.css", minifyCss], ["assets/main.js", minifyJs]]) {
-    const raw = await readFile(join(ROOT, file), "utf8");
-    await writeFile(join(DIST, file), fn(raw), "utf8");
+  const assetHash = {};
+  for (const [file, fn, key] of [["assets/styles.css", minifyCss, "css"], ["assets/main.js", minifyJs, "js"]]) {
+    const out = fn(await readFile(join(ROOT, file), "utf8"));
+    await writeFile(join(DIST, file), out, "utf8");
+    assetHash[key] = createHash("sha256").update(out).digest("hex").slice(0, 8);
   }
 
   // responsive-image manifest (basename → {w,h,v,vw}); empty if not generated yet
@@ -107,6 +121,7 @@ async function build() {
     let html = applyBase(layout(p.meta, p.body));
     html = addSrcset(html, resp);
     html = injectHeroPreload(html);
+    html = applyAssetHashes(html, assetHash);
     await writeFile(out, html, "utf8");
     console.log("✓", p.path);
   }
@@ -120,6 +135,27 @@ async function build() {
 
   // robots.txt
   await writeFile(join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${SITE}/sitemap.xml\n`, "utf8");
+
+  // Cloudflare Pages: _headers (cache + security baseline) and _redirects.
+  // All static assets live under /assets/*, so one immutable rule covers
+  // css/js (cache-busted via ?v=hash), fonts and photos. HTML is left to the
+  // host default (revalidated) so content changes show immediately. CSP is
+  // intentionally deferred (deploy report-only first, then enforce).
+  await writeFile(join(DIST, "_headers"),
+    `/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n\n`
+    + `/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n`
+    + `  X-Frame-Options: SAMEORIGIN\n  Permissions-Policy: geolocation=(), microphone=(), camera=()\n`
+    + `  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload\n`, "utf8");
+
+  // URL parity with the old site is 1:1 and Cloudflare Pages serves clean
+  // (slash-less) URLs by default, so no path redirects are needed at launch.
+  // Add orphan-URL 301s here if Search Console surfaces indexed URLs outside
+  // the canonical slugs. Host canonicalization (apex -> www) and HTTPS are set
+  // in the Cloudflare dashboard (Redirect Rule + Always Use HTTPS), not here.
+  await writeFile(join(DIST, "_redirects"),
+    `# Path redirects (none needed at launch — 1:1 URL parity).\n`
+    + `# Example for a future orphan URL:\n`
+    + `# /ancienne-page  /nouvelle-page  301\n`, "utf8");
 
   // site.webmanifest (PWA install metadata; SVG icon — paths base-aware for preview)
   const manifest = {
