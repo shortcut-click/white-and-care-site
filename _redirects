@@ -1,0 +1,3 @@
+# Path redirects (none needed at launch — 1:1 URL parity).
+# Example for a future orphan URL:
+# /ancienne-page  /nouvelle-page  301

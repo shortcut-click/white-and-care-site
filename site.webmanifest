@@ -1,0 +1,18 @@
+{
+  "name": "White & Care · Cabinet dentaire à Anderlecht",
+  "short_name": "White & Care",
+  "lang": "fr",
+  "start_url": "/white-and-care-site/",
+  "scope": "/white-and-care-site/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#642eff",
+  "icons": [
+    {
+      "src": "/white-and-care-site/assets/brand/favicon-wc.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}
