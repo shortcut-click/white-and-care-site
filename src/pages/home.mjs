@@ -7,7 +7,7 @@ export default function () {
 
   const faq = [
     ["Ou se trouve le cabinet dentaire White & Care à Anderlecht ?",
-      "White & Care est situé au centre commercial Cora, à Anderlecht (1070), à Bruxelles. Vous bénéficiez d'un parking gratuit sur place, ce qui facilite votre venue en voiture comme en transports en commun."],
+      "White & Care est situé au Shopping Cora Anderlecht, à Anderlecht (1070), à Bruxelles. Vous bénéficiez d'un parking gratuit sur place, ce qui facilite votre venue en voiture comme en transports en commun."],
     ["Quels sont les horaires d'ouverture ?",
       "Le cabinet est ouvert du lundi au samedi, de 10h à 19h. Les consultations se font sur rendez-vous, que vous pouvez prendre par téléphone au +32 2 493 53 53."],
     ["Vos dentistes sont-ils conventionnés ?",
@@ -25,7 +25,7 @@ export default function () {
     ["Quels soins proposez-vous ?",
       "Soins généraux et détartrage, implants et prothèses, orthodontie et Invisalign, blanchiment et dentisterie esthétique, endodontie, parodontologie et urgences dentaires. Généralistes et spécialistes travaillent sous un même toit."],
     ["Y a-t-il un parking pres du cabinet ?",
-      "Oui, vous profitez du parking gratuit du centre commercial Cora, juste à côté du cabinet. C'est l'un des accès les plus pratiques pour un dentiste à Anderlecht."],
+      "Oui, vous profitez du parking gratuit du Shopping Cora Anderlecht, juste à côté du cabinet. C'est l'un des accès les plus pratiques pour un dentiste à Anderlecht."],
   ];
 
   const body = [
@@ -35,7 +35,7 @@ export default function () {
       ["4,6/5", "sur 191 avis Google"],
       ["12", "fauteuils, équipe pluridisciplinaire"],
       ["6 j/7", "ouvert du lundi au samedi"],
-      ["0&euro;", "parking gratuit au Cora"],
+      ["0&euro;", "parking gratuit au Shopping Cora Anderlecht"],
     ]),
 
     // H2 · Une grande équipe de dentistes conventionnés à Anderlecht
@@ -43,7 +43,7 @@ export default function () {
       eyebrow: "Cabinet dentaire à Anderlecht",
       title: "Une grande équipe de dentistes conventionnés à Anderlecht",
       paras: [
-        "White & Care est un cabinet dentaire situé au centre commercial Cora, à Anderlecht (1070), au coeur de Bruxelles. Notre équipe pluridisciplinaire accueille toute la famille, des enfants aux adultes, six jours sur sept. Vous cherchez un dentiste proche, accessible et qui pratique des tarifs clairs ? Nous réunissons sous un même toit des dentistes généralistes et des spécialistes : stomatologie, orthodontie, endodontie et parodontologie.",
+        "White & Care est un cabinet dentaire situé au Shopping Cora Anderlecht, à Anderlecht (1070), au coeur de Bruxelles. Notre équipe pluridisciplinaire accueille toute la famille, des enfants aux adultes, six jours sur sept. Vous cherchez un dentiste proche, accessible et qui pratique des tarifs clairs ? Nous réunissons sous un même toit des dentistes généralistes et des spécialistes : stomatologie, orthodontie, endodontie et parodontologie.",
         "Notre cabinet réunit de nombreux dentistes, et une grande partie d'entre eux sont conventionnés. Concrètement, cela veut dire qu'ils respectent les tarifs fixés par l'accord conclu entre les dentistes et les mutuelles. Pour vous, c'est la garantie de soins de qualité, à des prix justes et annoncés à l'avance, avec un meilleur remboursement par votre mutuelle.",
         "Comme dans tout cabinet dentaire, tous les praticiens ne sont pas conventionnés, et les spécialistes le sont plus rarement. Mais notre équipe est nombreuse : vous y trouvez un large choix de praticiens. Lors de la prise de rendez-vous, n'hésitez pas à nous indiquer que vous souhaitez consulter un <strong>dentiste conventionné à Anderlecht</strong>, nous vous orientons vers la bonne personne. Pour découvrir notre équipe et nos installations, voir " + link("notre cabinet à Anderlecht", "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht") + ".",
       ],
@@ -85,7 +85,7 @@ export default function () {
       + `<article class="wc-card wc-feature"><span class="wc-chip">${dentalIcon("shield-tooth", 26)}</span><h3>Dentiste entièrement conventionné</h3><p>Ce praticien applique les tarifs conventionnés pour tous ses patients, à tout moment. C'est le cas de plusieurs de nos dentistes. Votre remboursement par la mutuelle est optimal et votre reste à charge réduit.</p></article>`
       + `<article class="wc-card wc-feature"><span class="wc-chip">${dentalIcon("calendar-check", 26)}</span><h3>Dentiste partiellement conventionné</h3><p>Ce praticien respecte les tarifs conventionnés seulement pendant certaines plages horaires. En dehors de ces heures, il peut pratiquer des dépassements d'honoraires, qui augmentent votre reste à charge.</p></article>`
       + `<article class="wc-card wc-feature"><span class="wc-chip">${dentalIcon("tooth", 26)}</span><h3>Dentiste non conventionné</h3><p>Ce praticien fixe librement ses honoraires, souvent plus élevés. La mutuelle rembourse toujours sur la base du tarif officiel, ce qui veut dire un coût supplémentaire à votre charge.</p></article>`
-      + `</div><div class="wc-glass-card" style="padding:32px 40px;margin-top:28px"><p style="font-size:15.5px;line-height:1.7;color:var(--wc-body)">Vous pouvez vérifier le statut d'un dentiste sur le site de l'INAMI, auprès de votre mutuelle, ou tout simplement en nous posant la question au téléphone. Nous vous répondons en toute transparence. Pour en savoir plus, découvrez notre page ${link("dentiste conventionne à Anderlecht", "/dentiste-conventionne")}.</p></div></div></section>`,
+      + `</div><div class="wc-glass-card" style="padding:32px 40px;margin-top:28px"><p style="font-size:15.5px;line-height:1.7;color:var(--wc-body)">Vous pouvez vérifier le statut d'un dentiste sur le site de l'INAMI, auprès de votre mutuelle, ou tout simplement en nous posant la question au téléphone. Nous vous répondons en toute transparence. Pour en savoir plus, découvrez notre page ${link("dentiste conventionné à Anderlecht", "/dentiste-conventionne")}.</p></div></div></section>`,
 
     // H2 · On parle votre langue à Anderlecht
     langueSection(LANGUE),
@@ -111,17 +111,17 @@ export default function () {
       eyebrow: "Facile d'acces",
       title: "Un cabinet dentaire facile d'accès à Anderlecht",
       paras: [
-        "White & Care se trouve au centre commercial Cora, à Anderlecht. Vous profitez d'un parking gratuit et d'un accès simple, que vous veniez en voiture ou en transports en commun. Idéal pour combiner un rendez-vous chez le dentiste avec vos courses, sans stress de stationnement.",
+        "White & Care se trouve au Shopping Cora Anderlecht, à Anderlecht. Vous profitez d'un parking gratuit et d'un accès simple, que vous veniez en voiture ou en transports en commun. Idéal pour combiner un rendez-vous chez le dentiste avec vos courses, sans stress de stationnement.",
         "Notre cabinet est ouvert du lundi au samedi, de 10h à 19h. Cette large amplitude, samedi compris, vous permet de trouver un créneau qui s'adapté à votre travail et à votre vie de famille. Nous accueillons aussi les patients des communes voisines : Molenbeek, Forest, Saint-Gilles et Berchem-Sainte-Agathe.",
       ],
       bullets: [
-        ["shield-tooth", "Au centre commercial Cora (1070 Anderlecht), parking gratuit"],
+        ["shield-tooth", "Au Shopping Cora Anderlecht (1070), parking gratuit"],
         ["calendar-check", "Ouvert du lundi au samedi, de 10h à 19h, sur rendez-vous"],
         ["smile", "Facilement accessible en voiture comme en transports en commun"],
       ],
       image: "/assets/photos/cabinet-dentaire-white-and-care-anderlecht-cora.webp",
       imageSide: "right",
-      alt: "Cabinet dentaire White & Care au centre Cora à Anderlecht",
+      alt: "Cabinet dentaire White & Care au Shopping Cora Anderlecht",
       cta: btn("Prendre rendez-vous : " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true }),
     }),
 
@@ -129,12 +129,12 @@ export default function () {
     stepGrid({
       eyebrow: "Prendre rendez-vous chez votre dentiste à Anderlecht",
       title: "Un rendez-vous en trois étapes simples",
-      intro: "Prendre rendez-vous chez White & Care est simple et rapide. Un seul numéro, une équipe à votre écoute, et un cabinet ouvert six jours sur sept au centre Cora d'Anderlecht.",
+      intro: "Prendre rendez-vous chez White & Care est simple et rapide. Un seul numéro, une équipe à votre écoute, et un cabinet ouvert six jours sur sept au Shopping Cora Anderlecht.",
       cols: 3,
       steps: [
         { title: "Appelez le cabinet", body: "Composez le " + PHONE + ". Notre accueil vous répond en français, anglais ou arabe et écoute votre demande." },
         { title: "Choisissez votre créneau", body: "Nous vous proposons un créneau adapté, du lundi au samedi de 10h à 19h, et vous orientons vers le bon praticien." },
-        { title: "Venez en confiance", body: "Que ce soit pour un contrôle, un soin spécialisé ou une urgence, nous sommes prêts à vous accueillir au centre Cora." },
+        { title: "Venez en confiance", body: "Que ce soit pour un contrôle, un soin spécialisé ou une urgence, nous sommes prêts à vous accueillir au Shopping Cora Anderlecht." },
       ],
     }),
 
@@ -143,20 +143,20 @@ export default function () {
 
     faqSection({ title: "Questions fréquentes sur votre dentiste à Anderlecht", items: faq }),
 
-    ctaBanner("Un dentiste à Anderlecht, ouvert du lundi au samedi, avec parking gratuit au Cora. Appelez le " + PHONE + "."),
+    ctaBanner("Un dentiste à Anderlecht, ouvert du lundi au samedi, avec parking gratuit au Shopping Cora Anderlecht. Appelez le " + PHONE + "."),
   ].join("\n");
 
   return {
     path: "index.html",
     meta: {
       title: "Dentiste Anderlecht | Cabinet conventionné | White & Care",
-      description: "Cabinet dentaire à Anderlecht (Cora) : grande équipe de dentistes, dont de nombreux praticiens conventionnés INAMI. 4,6/5 sur 191 avis. Ouvert lun-sam.",
+      description: "Cabinet dentaire à Anderlecht (Shopping Cora Anderlecht) : grande équipe de dentistes, dont de nombreux praticiens conventionnés INAMI. 4,6/5 sur 191 avis. Ouvert lun-sam.",
       canonical: url,
       schema: [
         schema({
           url,
           name: "White & Care",
-          description: "Cabinet dentaire à Anderlecht (centre Cora, 1070) : grande équipe de dentistes, dont de nombreux praticiens conventionnés INAMI. Généralistes et spécialistes, ouvert du lundi au samedi.",
+          description: "Cabinet dentaire à Anderlecht (Shopping Cora Anderlecht, 1070) : grande équipe de dentistes, dont de nombreux praticiens conventionnés INAMI. Généralistes et spécialistes, ouvert du lundi au samedi.",
         }),
         faqSchema(faq),
       ],

@@ -34,7 +34,7 @@ export default function () {
     pageHeroSplit({
       eyebrow: "Dentiste conventionné · Anderlecht",
       title: "Une grande équipe de dentistes conventionnés à Anderlecht",
-      lead: "Au centre commercial Cora, bénéficiez d'une grande équipe de dentistes, dont de nombreux praticiens conventionnés : tarifs officiels INAMI, remboursement mutuelle clair et facture sans mauvaise surprise.",
+      lead: "Au Shopping Cora Anderlecht, bénéficiez d'une grande équipe de dentistes, dont de nombreux praticiens conventionnés : tarifs officiels INAMI, remboursement mutuelle clair et facture sans mauvaise surprise.",
       image: "/assets/photos/cabinet-hero.jpeg",
       alt: "Cabinet dentaire White & Care à Anderlecht",
       secondary: { label: "Découvrir nos soins", href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht#soins" },
@@ -128,7 +128,7 @@ export default function () {
     featureGrid({
       eyebrow: "Pourquoi White & Care à Anderlecht",
       title: "Des soins conventionnés, clairs et accessibles",
-      intro: "À deux pas de chez vous, au centre commercial Cora à Anderlecht, dans toute la région bruxelloise.",
+      intro: "À deux pas de chez vous, au Shopping Cora Anderlecht, dans toute la région bruxelloise.",
       cols: 3,
       cards: [
         { icon: "euro", title: "Tarifs conventionnés et transparents", body: "Avec un dentiste conventionné de notre équipe, vous bénéficiez des tarifs officiels, sans coûts cachés ni dépenses imprévues. Les montants vous sont communiqués clairement, avant les soins." },
@@ -140,7 +140,7 @@ export default function () {
     statsStrip([
       ["4,6/5", "Note Google sur ~191 avis"],
       ["6j/7", "Ouvert du lundi au samedi"],
-      ["Cora", "Parking gratuit à Anderlecht"],
+      ["Shopping Cora Anderlecht", "Parking gratuit à Anderlecht"],
     ]),
 
     glassBlock({
@@ -164,7 +164,7 @@ export default function () {
       eyebrow: "Prendre rendez-vous",
       title: "Prendre rendez-vous avec un dentiste conventionné",
       paras: [
-        "Pour consulter un dentiste conventionné à Anderlecht, le plus simple est de nous appeler au " + PHONE + ". Nous sommes ouverts du lundi au samedi, de 10h à 19h, et le parking du centre commercial Cora est gratuit.",
+        "Pour consulter un dentiste conventionné à Anderlecht, le plus simple est de nous appeler au " + PHONE + ". Nous sommes ouverts du lundi au samedi, de 10h à 19h, et le parking du Shopping Cora Anderlecht est gratuit.",
         "Indiquez-nous si vous souhaitez un praticien conventionné et dans quelle langue vous préférez être reçu : nous organiserons votre rendez-vous en conséquence. Le cabinet est facilement accessible depuis Molenbeek, Forest et Saint-Gilles.",
       ],
       cta: btn("Appeler le " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true }),
@@ -174,7 +174,7 @@ export default function () {
     relatedServices([
       { href: "/surfacage-detartrage-dentaire", icon: "brush", title: "Détartrage et surfaçage", body: "Soin courant remboursé, à intervalles réguliers." },
       { href: "/urgence-dentaire-anderlecht", icon: "alert-tooth", title: "Urgence dentaire", body: "Douleur ou abcès : pris en charge le jour même." },
-      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "smile", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au centre Cora." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "smile", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au Shopping Cora Anderlecht." },
     ]),
 
     reviewsSection(),

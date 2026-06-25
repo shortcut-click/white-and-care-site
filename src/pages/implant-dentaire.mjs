@@ -165,18 +165,18 @@ export default function () {
       ["4,6/5", "Note sur 191 avis Google"],
       ["Chirurgiens", "spécialisés en implantologie"],
       ["Lun-Sam", "Ouvert de 10h à 19h"],
-      ["Cora", "Parking gratuit à Anderlecht"],
+      ["Shopping Cora Anderlecht", "Parking gratuit à Anderlecht"],
     ]),
 
     glassBlock({
       eyebrow: "SEO local",
       title: "Votre cabinet d'implantologie à Anderlecht",
       paras: [
-        "White & Care réunit une équipe pluridisciplinaire, dont des chirurgiens spécialisés en implantologie, au cœur du centre commercial Cora à Anderlecht. Vous bénéficiez d'un parking gratuit Cora, d'un accueil multilingue et d'une ouverture du lundi au samedi de 10h à 19h.",
+        "White & Care réunit une équipe pluridisciplinaire, dont des chirurgiens spécialisés en implantologie, au cœur du Shopping Cora Anderlecht. Vous bénéficiez d'un parking gratuit Shopping Cora Anderlecht, d'un accueil multilingue et d'une ouverture du lundi au samedi de 10h à 19h.",
         "Nous accueillons les patients d'Anderlecht, Cureghem, Neerpede et plus largement du sud-ouest de Bruxelles : Forest, Saint-Gilles, Drogenbos et Dilbeek. Pour planifier votre première consultation implant, appelez le " + PHONE + ".",
       ],
       checks: [
-        "Centre commercial Cora, 1070 Anderlecht.",
+        "Shopping Cora Anderlecht, 1070 Anderlecht.",
         "Chirurgiens spécialisés en implantologie.",
         "Note 4,6 sur 5 sur la base de près de 191 avis Google.",
       ],

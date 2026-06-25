@@ -21,7 +21,7 @@ export default function () {
     ["Comment entretenir son appareil et garder une bonne hygiène ?",
       "Un brossage régulier des dents et de l'appareil est essentiel. Nous vous donnons des instructions precises. Les gouttières amovibles facilitent beaucoup le nettoyage au quotidien."],
     ["Quel est le prix d'un appareil dentaire ?",
-      "Cela dépend du type d'appareil et de la complexite. Les bagues metalliques sont l'option la plus accessible, les aligneurs et le lingual les plus élevés. À titre indicatif, un traitement par aligneurs se situe souvent entre 2 000 et 7 000 EUR. Nous remettons un devis détaillé avant de commencer."],
+      "Cela dépend du type d'appareil et de la complexité. Les bagues métalliques sont l'option la plus accessible, les aligneurs et le lingual les plus élevés. À titre indicatif, un traitement par aligneurs se situe souvent entre 2 000 et 7 000 EUR. Nous remettons un devis détaillé avant de commencer."],
     ["Existe-t-il des aides pour financer le traitement ?",
       "Selon l'âge et la situation, des aides peuvent exister, en particulier pour les enfants et adolescents dont le traitement débuté tot. Votre mutualité vous indiquera vos droits précis. De notre cote, nous remettons un devis clair et proposons des paiements echelonnes."],
     ["Proposez-vous des facilites de paiement ?",
@@ -197,7 +197,7 @@ export default function () {
       cols: 3,
       cards: [
         { icon: "award", title: "Une équipe expérimentée", body: "Une équipe au cœur d'Anderlecht qui traite enfants comme adultes, et prend le temps d'écouter pour bâtir un plan vraiment adapté à votre situation." },
-        { icon: "shield-tooth", title: "Parking gratuit au Cora", body: "Le cabinet se situe dans le centre commercial Cora, avec un parking gratuit : un vrai plus pour un traitement à visites régulières. Un accueil multilingue vous attend." },
+        { icon: "shield-tooth", title: "Parking gratuit au Shopping Cora Anderlecht", body: "Le cabinet se situe dans le Shopping Cora Anderlecht, avec un parking gratuit : un vrai plus pour un traitement à visites régulières. Un accueil multilingue vous attend." },
         { icon: "heart-care", title: "La confiance des patients", body: "4,6/5 sur la base de 191 avis Google. Nous accueillons les patients d'Anderlecht, Molenbeek, Forest, Saint-Gilles et des environs de Bruxelles." },
       ],
     }),
@@ -209,7 +209,7 @@ export default function () {
     relatedServices([
       { href: "/invisalign", icon: "sparkle-tooth", title: "Invisalign", body: "Des aligneurs transparents et amovibles." },
       { href: "/blanchiment-dentaire-cabinet-dentaire-anderlecht", icon: "smile", title: "Blanchiment dentaire", body: "Un sourire plus lumineux après le traitement." },
-      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "clipboard", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au centre Cora." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "clipboard", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au Shopping Cora Anderlecht." },
     ]),
 
     reviewsSection(),

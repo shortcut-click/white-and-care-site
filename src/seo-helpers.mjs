@@ -19,7 +19,7 @@ export function schema({ url, name, description, type = "WebPage" }) {
   const dentist = {
     "@type": "Dentist", "@id": DENTIST_ID,
     name: "White & Care",
-    description: "Cabinet dentaire pluridisciplinaire à Anderlecht (centre commercial Cora, 1070 Bruxelles) : dentistes généralistes et spécialistes, dont de nombreux praticiens conventionnés INAMI.",
+    description: "Cabinet dentaire pluridisciplinaire à Anderlecht (Shopping Cora Anderlecht, 1070 Bruxelles) : dentistes généralistes et spécialistes, dont de nombreux praticiens conventionnés INAMI.",
     url: SITE + "/",
     telephone: "+3224935353",
     email: "contact@whiteandcare.be",

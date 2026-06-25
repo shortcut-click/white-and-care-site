@@ -161,8 +161,8 @@ function footer(meta = {}) {
   // Conventionnement rule: never claim "conventionné / INAMI / remboursé" on
   // specialist pages (implant, Invisalign, orthodontie). Neutral wording there.
   const about = meta.specialist
-    ? "Cabinet dentaire à Anderlecht réunissant une équipe pluridisciplinaire de dentistes et de spécialistes, au cœur du centre commercial Cora."
-    : "Cabinet dentaire à Anderlecht, centre commercial Cora. Une grande équipe de dentistes, dont de nombreux praticiens conventionnés INAMI.";
+    ? "Cabinet dentaire à Anderlecht réunissant une équipe pluridisciplinaire de dentistes et de spécialistes, au cœur du Shopping Cora Anderlecht."
+    : "Cabinet dentaire à Anderlecht, Shopping Cora Anderlecht. Une grande équipe de dentistes, dont de nombreux praticiens conventionnés INAMI.";
   return `<footer class="wc-footer"><div class="wc-container wc-foot-grid">
   <div>
     <img src="/assets/brand/logo-blanc.svg" alt="White & Care" width="662" height="102">
@@ -171,7 +171,7 @@ function footer(meta = {}) {
   ${cols}
   <div><h4>Contact</h4><ul class="wc-foot-contact">
     <li><span class="ic">${ui.phone(16)}</span> <a href="${TEL}" style="color:inherit">${PHONE}</a></li>
-    <li><span class="ic">${ui.pin(16)}</span> Centre commercial Cora, Anderlecht</li>
+    <li><span class="ic">${ui.pin(16)}</span> Shopping Cora Anderlecht, 1070</li>
     <li><span class="ic">${ui.clock(16)}</span> Lun – Sam · 10h – 19h</li>
   </ul></div>
 </div>

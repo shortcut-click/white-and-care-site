@@ -53,7 +53,7 @@ export default function () {
     pageHeroSplit({
       eyebrow: "Esthétique du sourire",
       title: "Blanchiment dentaire à Anderlecht",
-      lead: "Un sourire plus lumineux, sans risque pour vos dents. Au centre commercial Cora à Anderlecht, notre équipe de dentistes réalise des blanchiments professionnels, en cabinet ou en kit supervisé à domicile. Un soin esthétique mené dans un cadre médical, par des praticiens qualifiés.",
+      lead: "Un sourire plus lumineux, sans risque pour vos dents. Au Shopping Cora Anderlecht, notre équipe de dentistes réalise des blanchiments professionnels, en cabinet ou en kit supervisé à domicile. Un soin esthétique mené dans un cadre médical, par des praticiens qualifiés.",
       image: "/assets/photos/blanchiment-dentaire-anderlecht-hero.webp",
       alt: "Sourire éclatant aux dents blanches après un blanchiment à Anderlecht",
     }),
@@ -204,7 +204,7 @@ export default function () {
     relatedServices([
       { href: "/surfacage-detartrage-dentaire", icon: "brush", title: "Détartrage et surfaçage", body: "La meilleure base avant un blanchiment." },
       { href: "/orthodontie-anderlecht", icon: "smile", title: "Orthodontie", body: "Aligner puis blanchir pour un sourire complet." },
-      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "clipboard", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au centre Cora." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "clipboard", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au Shopping Cora Anderlecht." },
     ]),
 
     reviewsSection(),

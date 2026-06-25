@@ -19,7 +19,7 @@ function mentions() {
   const sections = [
     ["Éditeur du site", [
       "White & Care SRL · cabinet dentaire conventionné INAMI.",
-      "Centre commercial Cora, 1070 Anderlecht, Bruxelles, Belgique.",
+      "Shopping Cora Anderlecht, 1070 Anderlecht, Bruxelles, Belgique.",
       "Téléphone : +32 2 493 53 53 · E-mail : contact@whiteandcare.be",
       "Numéro d'entreprise (BCE) et numéro de TVA : à compléter par l'éditeur.",
     ]],

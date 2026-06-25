@@ -5,7 +5,7 @@ export function heroHome() {
   return `<section class="wc-hero" id="top"><div class="wc-container"><div class="wc-glass-card">
   <div class="wc-hero-grid">
     <div>
-      <div class="wc-badges">${badge("Dentistes conventionnés", "trust")}${badge("Anderlecht · Cora", "neutral")}</div>
+      <div class="wc-badges">${badge("Dentistes conventionnés", "trust")}${badge("Shopping Cora Anderlecht", "neutral")}</div>
       <h1>Votre clinique dentaire à <span class="wc-gradient-text">Anderlecht</span></h1>
       <p class="wc-lead">Une grande équipe de dentistes, dont de nombreux praticiens conventionnés qui appliquent les tarifs officiels INAMI : des soins de qualité, à des tarifs clairs.</p>
       <div class="wc-hero-actions">
@@ -15,7 +15,7 @@ export function heroHome() {
       <div class="wc-trust-row">
         ${trustChip("euro", "Conventionné", "Tarifs officiels INAMI")}
         ${trustChip("smile", "Multilingue", "FR · NL · EN · ES · AR")}
-        ${trustChip("shield-tooth", "Cora Anderlecht", "Parking gratuit")}
+        ${trustChip("shield-tooth", "Shopping Cora Anderlecht", "Parking gratuit")}
         ${trustChip("calendar-check", "Lun – Sam", "10h – 19h")}
       </div>
     </div>

@@ -39,7 +39,7 @@ export default function () {
     pageHeroSplit({
       eyebrow: "Parodontologie",
       title: "Détartrage et surfaçage à Anderlecht : un sourire sain, sans douleur",
-      lead: "Au cabinet White & Care, dans le centre commercial Cora à Anderlecht, notre équipe réalise des détartrages en douceur et des surfaçages plus approfondis quand les gencives ont besoin d'un soin particulier. L'objectif reste le même : des dents propres, des gencives saines, et une visite sans stress ni douleur.",
+      lead: "Au cabinet White & Care, dans le Shopping Cora Anderlecht, notre équipe réalise des détartrages en douceur et des surfaçages plus approfondis quand les gencives ont besoin d'un soin particulier. L'objectif reste le même : des dents propres, des gencives saines, et une visite sans stress ni douleur.",
       image: "/assets/photos/detartrage-anderlecht-sourire-sain.webp",
       alt: "Sourire sain après un détartrage au cabinet White & Care à Anderlecht",
     }),
@@ -178,31 +178,31 @@ export default function () {
       eyebrow: "Prendre rendez-vous",
       title: "Prendre rendez-vous pour un détartrage à Anderlecht",
       paras: [
-        "Notre cabinet vous accueille dans le centre commercial Cora à Anderlecht, du lundi au samedi de 10h à 19h, avec un parking gratuit. Facile d'accès depuis Molenbeek, Forest et Saint-Gilles, en voiture comme en transports en commun.",
+        "Notre cabinet vous accueille dans le Shopping Cora Anderlecht, du lundi au samedi de 10h à 19h, avec un parking gratuit. Facile d'accès depuis Molenbeek, Forest et Saint-Gilles, en voiture comme en transports en commun.",
         "Notre équipe est multilingue et notée 4,6 sur 5 par près de 191 patients sur Google. Pour réserver votre détartrage ou faire évaluer vos gencives, le plus simple est de nous appeler.",
       ],
       bullets: [
-        ["shield-tooth", "Centre commercial Cora (1070 Anderlecht), parking gratuit"],
+        ["shield-tooth", "Shopping Cora Anderlecht (1070), parking gratuit"],
         ["calendar-check", "Ouvert du lundi au samedi, de 10h à 19h, sur rendez-vous"],
         ["smile", "Équipe multilingue, notée 4,6/5 sur 191 avis Google"],
       ],
       image: "/assets/photos/cabinet-dentaire-white-and-care-anderlecht-cora.webp",
       imageSide: "right",
-      alt: "Entrée du cabinet White & Care au centre Cora à Anderlecht pour prendre rendez-vous",
+      alt: "Entrée du cabinet White & Care au Shopping Cora Anderlecht pour prendre rendez-vous",
       cta: btn("Appelez White & Care : " + PHONE, { variant: "primary", iconLeft: ui.phone(15), book: true }),
     }),
 
     relatedServices([
       { href: "/dentiste-conventionne", icon: "euro", title: "Dentiste conventionné", body: "Tarifs officiels INAMI et meilleur remboursement." },
       { href: "/blanchiment-dentaire-cabinet-dentaire-anderlecht", icon: "sparkle-tooth", title: "Blanchiment dentaire", body: "Des dents propres avant un blanchiment réussi." },
-      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "smile", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au centre Cora." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "smile", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au Shopping Cora Anderlecht." },
     ]),
 
     reviewsSection(),
 
     faqSection({ title: "Questions fréquentes sur le détartrage et le surfaçage", items: faq }),
 
-    ctaBanner("Détartrage remboursé, surfaçage des gencives, indolore et 6 j/7 au Cora à Anderlecht. Appelez le " + PHONE + "."),
+    ctaBanner("Détartrage remboursé, surfaçage des gencives, indolore et 6 j/7 au Shopping Cora Anderlecht. Appelez le " + PHONE + "."),
   ].join("\n");
 
   return {
@@ -217,7 +217,7 @@ export default function () {
           url,
           type: "MedicalWebPage",
           name: "White & Care · Détartrage & surfaçage",
-          description: "Détartrage et surfaçage radiculaire à Anderlecht (centre Cora, 1070). Détartrage remboursé par la mutuelle chez un dentiste conventionné INAMI, indolore, ouvert du lundi au samedi.",
+          description: "Détartrage et surfaçage radiculaire à Anderlecht (Shopping Cora Anderlecht, 1070). Détartrage remboursé par la mutuelle chez un dentiste conventionné INAMI, indolore, ouvert du lundi au samedi.",
         }),
         faqSchema(faq),
         howToSchema({ name: "Comment se déroule un détartrage", description: "Le déroulé d'un détartrage chez White & Care, de l'évaluation aux conseils d'hygiène.", steps: detartrageSteps }),

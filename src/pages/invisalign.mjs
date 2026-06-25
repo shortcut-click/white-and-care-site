@@ -57,7 +57,7 @@ export default function () {
     pageHeroSplit({
       eyebrow: "Orthodontie invisible",
       title: "Invisalign à Anderlecht et Bruxelles : réalignez votre sourire sans bagues",
-      lead: "Des aligneurs transparents sur mesure pour corriger votre sourire en toute discrétion. Scanner 3D, simulation ClinCheck et suivi par un orthodontiste Invisalign Provider, au centre commercial Cora à Anderlecht.",
+      lead: "Des aligneurs transparents sur mesure pour corriger votre sourire en toute discrétion. Scanner 3D, simulation ClinCheck et suivi par un orthodontiste Invisalign Provider, au Shopping Cora Anderlecht.",
       image: "/assets/photos/invisalign-hero.webp",
       alt: "Aligneurs transparents Invisalign White & Care Anderlecht",
     }),
@@ -144,7 +144,7 @@ export default function () {
         { icon: "scanner", title: "Scanner 3D et ClinCheck sur place", body: "Empreinte numérique sans moulage et visualisation de votre résultat avant de commencer." },
         { icon: "award", title: "Orthodontiste Invisalign Provider", body: "Un suivi par un praticien formé à la méthode, du premier scanner au sourire final." },
         { icon: "smile", title: "Une équipe multilingue", body: "Vous êtes accueilli en français, néerlandais, anglais, espagnol, arabe et d'autres langues selon le praticien." },
-        { icon: "shield-tooth", title: "Accessible et pratique", body: "Au centre commercial Cora à Anderlecht, parking gratuit, ouvert du lundi au samedi de 10h à 19h." },
+        { icon: "shield-tooth", title: "Accessible et pratique", body: "Au Shopping Cora Anderlecht, parking gratuit, ouvert du lundi au samedi de 10h à 19h." },
         { icon: "heart-care", title: "La confiance des patients", body: "4,6/5 sur environ 191 avis Google, dans le sud-ouest de Bruxelles." },
         { icon: "calendar-check", title: "Un seul geste : appelez", body: "Nous fixons votre bilan, réalisons le scanner 3D et vous montrons votre futur sourire." },
       ],
@@ -164,7 +164,7 @@ export default function () {
     relatedServices([
       { href: "/orthodontie-anderlecht", icon: "smile", title: "Orthodontie", body: "Bagues et aligneurs pour tous les âges." },
       { href: "/blanchiment-dentaire-cabinet-dentaire-anderlecht", icon: "sparkle-tooth", title: "Blanchiment dentaire", body: "Parfaire le sourire une fois les dents alignées." },
-      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "clipboard", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au centre Cora." },
+      { href: "/soins-dentaires/votre-cabinet-dentaire-a-anderlecht", icon: "clipboard", title: "Le cabinet à Anderlecht", body: "Notre équipe et nos installations au Shopping Cora Anderlecht." },
     ]),
 
     reviewsSection(),
