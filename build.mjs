@@ -18,11 +18,18 @@ const DIST = join(ROOT, "dist");
 const _b = (process.env.WC_BASE || "").trim().replace(/^\/+|\/+$/g, "");
 const BASE = _b ? "/" + _b : "";
 
+// WC_PREVIEW: force noindex without prefixing paths — for a Cloudflare Pages
+// *.pages.dev preview served at the root (where WC_BASE's sub-path prefix is
+// wrong). Tracking is also disabled (see partials.mjs) so a test URL never
+// pollutes the client's analytics. A sub-path build (WC_BASE) is noindex too.
+const NOINDEX = !!BASE || !!(process.env.WC_PREVIEW || "").trim();
+
 function applyBase(html) {
+  if (NOINDEX) {
+    html = html.replace('content="index, follow, max-image-preview:large"', 'content="noindex, nofollow"');
+  }
   if (!BASE) return html;
-  return html
-    .replace(/(href|src)="\//g, `$1="${BASE}/`)
-    .replace('content="index, follow, max-image-preview:large"', 'content="noindex, nofollow"');
+  return html.replace(/(href|src)="\//g, `$1="${BASE}/`);
 }
 
 // Responsive images: add srcset (mobile variant + original) + sizes to every

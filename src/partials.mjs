@@ -22,7 +22,9 @@ const SAMEAS = [
 // Ads AW-11016373499), Meta Pixel 900731829579651.
 // Injecté UNIQUEMENT en production (pas sur la preview github.io, pour ne pas
 // polluer les comptes analytics du client avec du trafic de test).
-const TRACKING_ENABLED = !(process.env.WC_BASE || "").trim();
+// Tracking fires only on a true production build: no sub-path base (github.io
+// preview) and no WC_PREVIEW flag (Cloudflare *.pages.dev preview at root).
+const TRACKING_ENABLED = !(process.env.WC_BASE || "").trim() && !(process.env.WC_PREVIEW || "").trim();
 
 const trackingHead = TRACKING_ENABLED ? `
 <!-- Consent Mode v2 (défaut = refusé, RGPD Belgique). Doit s'exécuter AVANT GTM/gtag.
